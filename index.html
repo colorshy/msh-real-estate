@@ -1,708 +1,520 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MSH — ведущее агентство частной и инвестиционной недвижимости в Шымкенте. Премиальные квартиры, дома и жилые комплексы от проверенных застройщиков.">
-  <meta name="keywords" content="недвижимость Шымкент, купить квартиру Шымкент, элитная недвижимость Шымкент, агентство недвижимости MSH, жилые комплексы Шымкент">
-  <meta property="og:title" content="MSH — Недвижимость Шымкента">
-  <meta property="og:description" content="Недвижимость Шымкента, которую хочется назвать своим домом. Подбор квартир, домов и инвестиционных резиденций.">
-  <title>MSH — Премиальная недвижимость в Шымкенте</title>
+  <meta name="description" content="Atlant Estate — агентство премиальной и бизнес-недвижимости в Астане. Продажа, аренда и инвестиции в жилые комплексы Есильского, Алматинского и Нуринского районов.">
+  <meta name="keywords" content="недвижимость Астана, купить квартиру Астана, элитная недвижимость Астана, Atlant Estate, Highvill, Sensata, жилые комплексы Астана">
+  <meta property="og:title" content="Atlant Estate | Премиальная недвижимость в Астане">
+  <meta property="og:description" content="Недвижимость Астаны, которую хочется назвать своим домом. Закрытая база проверенных объектов.">
+  <meta property="og:type" content="website">
+  <title>Atlant Estate | Премиальная недвижимость в Астане</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#090A0D',
+              surface: '#0F1117',
+              card: '#151821',
+              cardHover: '#1B202C',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderLight: 'rgba(255, 255, 255, 0.16)',
+              gold: '#C5A880',
+              goldHover: '#D4B892',
+              muted: '#8E95A5',
+              light: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom styling for quiet luxury feel */
+    body {
+      background-color: #090A0D;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: #C5A880;
+      color: #090A0D;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090A0D;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #252A36;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3B4356;
+    }
+
+    /* Hero overlay with WCAG AAA contrast */
+    .hero-gradient {
+      background: linear-gradient(
+        180deg,
+        rgba(9, 10, 13, 0.72) 0%,
+        rgba(9, 10, 13, 0.35) 45%,
+        rgba(9, 10, 13, 0.88) 85%,
+        #090A0D 100%
+      );
+    }
+
+    /* Card image zoom transition */
+    .property-card-img {
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .property-card:hover .property-card-img {
+      transform: scale(1.045);
+    }
+
+    /* Custom select arrow */
+    .custom-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%238E95A5' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+
+    /* Floating WhatsApp pulse */
+    @keyframes subtle-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+      50% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    }
+    .pulse-whatsapp {
+      animation: subtle-pulse 3s infinite ease-in-out;
+    }
+
+    /* Backdrop blur transition */
+    .header-scrolled {
+      background-color: rgba(9, 10, 13, 0.94) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Toast animation */
+    @keyframes slide-in-up {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .toast-anim {
+      animation: slide-in-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
 </head>
-<body>
+<body class="relative min-h-screen flex flex-col justify-between">
 
   <!-- ========================================================================
-       Header / Navigation
+       1. STICKY HEADER
        ======================================================================== -->
-  <header class="site-header" id="site-header">
-    <div class="container header-container">
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/5 bg-brand-black/75 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#" class="brand" aria-label="MSH Недвижимость Шымкента Главная">
-        <div class="brand-logo-text">MSH</div>
-        <span class="brand-tagline">Агентство недвижимости</span>
+      <!-- Brand Logo Left -->
+      <a href="#" class="flex items-center gap-3.5 group" aria-label="Atlant Estate Главная">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-card to-brand-surface border border-brand-border flex items-center justify-center font-bold tracking-tight text-brand-gold text-lg group-hover:border-brand-gold/40 transition-colors">
+          AE
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-bold tracking-tight text-white group-hover:text-brand-gold transition-colors">Atlant Estate</span>
+          <span class="text-xs text-brand-muted font-normal tracking-wide">Агентство недвижимости</span>
+        </div>
       </a>
 
-      <!-- Header Action Elements -->
-      <div class="header-actions">
+      <!-- Right Action Cluster -->
+      <div class="flex items-center gap-2.5 sm:gap-4">
         
-        <!-- Location Indicator -->
-        <div class="location-indicator">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          <span>г. Шымкент</span>
+        <!-- City Indicator -->
+        <div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-xs font-medium text-brand-muted">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>г. Астана</span>
         </div>
 
-        <!-- Favorites Button -->
-        <a href="#properties" class="btn-favorites" aria-label="Избранные объекты">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+        <!-- Favorites Button with Counter -->
+        <button id="btn-open-favorites" class="relative p-2.5 sm:px-3 sm:py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/20 transition-all flex items-center gap-2 text-white group" aria-label="Открыть избранные объекты">
+          <svg class="w-4 h-4 text-brand-muted group-hover:text-rose-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
           </svg>
-          <span class="favorites-count">0</span>
+          <span class="text-xs font-semibold text-white hidden sm:inline">Избранное</span>
+          <span id="favorites-badge" class="min-w-[18px] h-[18px] px-1 rounded-full bg-brand-gold text-brand-black text-[11px] font-bold flex items-center justify-center leading-none">0</span>
+        </button>
+
+        <!-- Direct Catalog CTA with Accent Arrow -->
+        <a href="#properties" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white text-brand-black hover:bg-brand-gold hover:text-brand-black transition-all text-xs sm:text-sm font-semibold tracking-tight shadow-sm hover:shadow-brand-gold/10">
+          <span>Каталог</span>
+          <span class="text-xs font-bold">↗</span>
         </a>
 
-        <!-- Auth Actions -->
-        <button class="btn-signin" onclick="openConsultationModal('Вход в закрытый каталог MSH')">Войти</button>
-        <a href="#properties" class="btn-cta-nav">
-          Смотреть объекты
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="7" y1="17" x2="17" y2="7"/>
-            <polyline points="7 7 17 7 17 17"/>
-          </svg>
-        </a>
-
-        <!-- Minimalist Menu Toggle Button -->
-        <button class="btn-menu-toggle" id="btn-menu-toggle" aria-label="Открыть навигацию" aria-expanded="false">
-          <span class="menu-icon-lines">
-            <span></span>
-            <span></span>
-          </span>
-          <span class="menu-text-label">Меню</span>
+        <!-- Compact Menu Toggle Button -->
+        <button id="btn-toggle-menu" class="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white flex items-center gap-2 transition-all" aria-label="Открыть меню навигации">
+          <div class="w-4 flex flex-col gap-1 items-end">
+            <span class="w-4 h-0.5 bg-white rounded-full"></span>
+            <span class="w-2.5 h-0.5 bg-brand-muted rounded-full group-hover:w-4 transition-all"></span>
+          </div>
+          <span class="text-xs font-medium text-brand-muted hidden sm:inline">Меню</span>
         </button>
 
       </div>
+
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-nav-drawer" aria-label="Мобильное меню">
-    <div class="mobile-nav-links">
-      <a href="#about" class="mobile-nav-link">О компании</a>
-      <a href="#properties" class="mobile-nav-link">Объекты в продаже</a>
-      <a href="#sold" class="mobile-nav-link">Реализованные объекты</a>
-      <a href="#brokers" class="mobile-nav-link">Команда брокеров</a>
-      <a href="#reviews" class="mobile-nav-link">Отзывы клиентов</a>
-      <a href="#contact" class="mobile-nav-link">Контакты и офис</a>
-    </div>
-    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
-      <button onclick="openConsultationModal('Личный кабинет клиента')" class="btn-outline-hero" style="text-align: center; justify-content: center;">Личный кабинет</button>
-      <a href="#properties" class="btn-primary-hero" style="text-align: center; justify-content: center;">Смотреть каталог</a>
-    </div>
-  </div>
-
-  <main id="main-content">
-    
-    <!-- ======================================================================
-         Hero Section
-         ====================================================================== -->
-    <section class="hero-section" id="hero" aria-label="Главный экран">
-      
-      <!-- Background Image with Panoramic View of Shymkent -->
-      <div class="hero-bg">
-        <img src="assets/images/hero-shymkent-ferris.jpg" alt="Панорама и колесо обозрения Шымкента" loading="eager">
-      </div>
-
-      <!-- Contrast Gradient Overlay -->
-      <div class="hero-overlay"></div>
-
-      <div class="container" style="position: relative; z-index: 5;">
-        <div class="hero-content">
-
-          <h1 class="hero-title">
-            Недвижимость Шымкента,<br>
-            <em>которую хочется назвать своим домом.</em>
-          </h1>
-
-          <div class="hero-buttons">
-            <a href="#properties" class="btn-primary-hero">
-              Смотреть объекты
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
-            </a>
-            <button onclick="openConsultationModal('Индивидуальный подбор недвижимости')" class="btn-outline-hero">
-              Подобрать недвижимость
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
-            </button>
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-none">
+    <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+    <div class="absolute top-0 right-0 w-full max-w-sm h-full bg-brand-surface border-l border-brand-border p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-white/5">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center font-bold text-brand-gold text-sm">AE</div>
+            <span class="text-sm font-bold text-white">Atlant Estate</span>
           </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         Trust & Value Propositions Strip
-         ====================================================================== -->
-    <section class="trust-strip" aria-label="Преимущества агентства">
-      <div class="container">
-        <div class="trust-strip-inner">
-          <div class="trust-point">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
+          <button id="btn-close-menu" class="p-2 rounded-lg text-brand-muted hover:text-white hover:bg-white/5 transition-all">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
-            <span>Прозрачные сделки</span>
-          </div>
-          <div class="trust-divider"></div>
-          <div class="trust-point">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Профессиональная команда брокеров</span>
-          </div>
-          <div class="trust-divider"></div>
-          <div class="trust-point">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Индивидуальный подбор активов</span>
-          </div>
-          <div class="trust-divider"></div>
-          <div class="trust-point">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Глубокое знание локаций Шымкента</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         Alpha Properties Editorial Action Grid (Group 2 SVG)
-         ====================================================================== -->
-    <section class="section-editorial" id="about" aria-label="О компании и экспертиза MSH">
-      <div class="container">
-        <div class="editorial-grid">
-          
-          <div class="editorial-left">
-            <h2 class="editorial-lead-title">
-              Инвестиционные активы и приватные резиденции в Шымкенте с подтвержденной ликвидностью.
-            </h2>
-            <p class="editorial-body-text">
-              Компания MSH формирует культуру прозрачных сделок и премиального сервиса на юге Казахстана. Мы отбираем объекты с продуманной архитектурой, удобными планировками и высоким потенциалом капитализации — от статусных пентхаусов до приватных загородных резиденций. Сопровождаем каждый этап под ключ, обеспечивая независимую оценку и полную защиту капитала клиента.
-            </p>
-            <div class="editorial-quote-author">
-              «В премиальном сегменте доверие строится на точности цифр, юридической чистоте и конфиденциальности.» — Данияр Агудо, основатель MSH
-            </div>
-
-            <!-- Key Metrics (MSH в цифрах) -->
-            <div class="editorial-stats-row">
-              <div class="stat-item">
-                <div class="stat-value">15+ лет</div>
-                <div class="stat-label">Опыт работы на рынке недвижимости Шымкента</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">500+</div>
-                <div class="stat-label">Успешно закрытых сделок и довольных клиентов</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Юридическая проверка и аудит каждого объекта</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- High-Contrast Dark Action Tiles (Alpha Properties Style) -->
-          <div class="editorial-actions-col">
-            
-            <a href="#properties" class="action-tile">
-              <div>
-                <div class="action-tile-title">Выбрать пространство для жизни</div>
-                <div class="action-tile-sub">Резиденции в мкр. Мирас, Туран, Нурсат и на пр. Тауке Хана</div>
-              </div>
-              <div class="action-tile-arrow">→</div>
-            </a>
-
-            <div class="action-tile" onclick="openConsultationModal('Инвестиции в новостройки Шымкента')" style="cursor: pointer;">
-              <div>
-                <div class="action-tile-title">Инвестиции в новостройки</div>
-                <div class="action-tile-sub">Закрытые старты продаж с прогнозируемой доходностью от 14%</div>
-              </div>
-              <div class="action-tile-arrow">→</div>
-            </div>
-
-            <div class="action-tile" onclick="openConsultationModal('Персональная консультация с ведущим брокером')" style="cursor: pointer;">
-              <div>
-                <div class="action-tile-title">Персональный брокерский аудит</div>
-                <div class="action-tile-sub">100% юридическая проверка прав собственности и обременений</div>
-              </div>
-              <div class="action-tile-arrow">→</div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         Properties Catalog
-         ====================================================================== -->
-    <section class="section-properties" id="properties" aria-label="Каталог объектов">
-      <div class="container">
-        
-        <div class="section-header-flex">
-          <div>
-            <h2 class="section-title-large" style="margin-bottom: 0;">
-              Каталог резиденций и квартир в Шымкенте
-            </h2>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <div class="carousel-nav-group">
-              <button class="btn-nav-round" id="prop-prev" aria-label="Предыдущий объект">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m15 18-6-6 6-6"/>
-                </svg>
-              </button>
-              <button class="btn-nav-round" id="prop-next" aria-label="Следующий объект">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m9 18 6-6-6-6"/>
-                </svg>
-              </button>
-            </div>
-            <button onclick="openConsultationModal('Запрос полного каталога объектов MSH')" class="btn-view-all">
-              Смотреть все объекты →
-            </button>
-          </div>
-        </div>
-
-        <!-- Properties Grid -->
-        <div class="properties-grid">
-          
-          <!-- Property 1 -->
-          <article class="property-card">
-            <div class="property-img-wrapper">
-              <img src="assets/images/property-miras.jpg" alt="Частная резиденция в мкр. Мирас, Шымкент" loading="lazy">
-              <button class="property-btn-fav" aria-label="Добавить в избранное">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="property-info">
-              <div class="property-price">185 000 000 ₸</div>
-              <div class="property-meta">4 спальни · 3 санузла · 320 м²</div>
-              <div class="property-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span>мкр. Мирас, Шымкент</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Property 2 -->
-          <article class="property-card">
-            <div class="property-img-wrapper">
-              <img src="assets/images/property-tauke-hana.jpg" alt="Жилой комплекс бизнес-класса на пр. Тауке Хана, Шымкент" loading="lazy">
-              <button class="property-btn-fav" aria-label="Добавить в избранное">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="property-info">
-              <div class="property-price">52 000 000 ₸</div>
-              <div class="property-meta">2 комнаты · 1 санузел · 68 м²</div>
-              <div class="property-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span>пр. Тауке Хана, Шымкент</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Property 3 -->
-          <article class="property-card">
-            <div class="property-img-wrapper">
-              <img src="assets/images/property-nursat.jpg" alt="Премиальный таунхаус в мкр. Нурсат, Шымкент" loading="lazy">
-              <button class="property-btn-fav" aria-label="Добавить в избранное">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="property-info">
-              <div class="property-price">98 000 000 ₸</div>
-              <div class="property-meta">3 спальни · 2 санузла · 180 м²</div>
-              <div class="property-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span>мкр. Нурсат, Шымкент</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Property 4 -->
-          <article class="property-card">
-            <div class="property-img-wrapper">
-              <img src="assets/images/property-asar.jpg" alt="Современный коттедж в мкр. Асар, Шымкент" loading="lazy">
-              <button class="property-btn-fav" aria-label="Добавить в избранное">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                </svg>
-              </button>
-            </div>
-            <div class="property-info">
-              <div class="property-price">74 000 000 ₸</div>
-              <div class="property-meta">3 спальни · 2 санузла · 140 м²</div>
-              <div class="property-location">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span>мкр. Асар, Шымкент</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         City Homes Featured Areas / Districts Showcase (Group 3 SVG)
-         ====================================================================== -->
-    <section class="section-districts" id="districts" aria-label="Районы Шымкента">
-      <div class="container">
-        
-        <div class="districts-header-flex">
-          <div>
-            <h2 class="section-title-large" style="margin-bottom: 6px;">Районы Шымкента</h2>
-            <p style="font-size: 15px; color: var(--text-muted); margin: 0;">
-              Локации с максимальной инвестиционной ликвидностью и развитой инфраструктурой
-            </p>
-          </div>
-          <div class="carousel-nav-group">
-            <button class="btn-nav-round" id="district-prev" aria-label="Предыдущий район">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m15 18-6-6 6-6"/>
-              </svg>
-            </button>
-            <button class="btn-nav-round" id="district-next" aria-label="Следующий район">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Districts Strip Horizontal Carousel -->
-        <div class="districts-strip-wrapper">
-          <div class="districts-strip" id="districts-strip">
-            
-            <!-- District 1: Нурсат -->
-            <div class="district-card" onclick="filterByDistrict('Нурсат')">
-              <img src="assets/images/property-nursat.jpg" alt="мкр. Нурсат, Шымкент" loading="lazy">
-              <div class="district-card-overlay">
-                <span class="district-badge">14 объектов</span>
-                <div class="district-name">мкр. Нурсат</div>
-                <div class="district-desc">Административный и деловой центр города, новые премиальные жилые комплексы</div>
-              </div>
-            </div>
-
-            <!-- District 2: Мирас -->
-            <div class="district-card" onclick="filterByDistrict('Мирас')">
-              <img src="assets/images/property-miras.jpg" alt="мкр. Мирас, Шымкент" loading="lazy">
-              <div class="district-card-overlay">
-                <span class="district-badge">8 резиденций</span>
-                <div class="district-name">мкр. Мирас</div>
-                <div class="district-desc">Престижный коттеджный массив, приватные особняки, чистый воздух предгорий</div>
-              </div>
-            </div>
-
-            <!-- District 3: пр. Тауке Хана & Центр -->
-            <div class="district-card" onclick="filterByDistrict('Тауке Хана')">
-              <img src="assets/images/property-tauke-hana.jpg" alt="пр. Тауке Хана, Шымкент" loading="lazy">
-              <div class="district-card-overlay">
-                <span class="district-badge">11 объектов</span>
-                <div class="district-name">пр. Тауке Хана / Центр</div>
-                <div class="district-desc">Главный проспект города, культурные центры, театры, парки и статусная среда</div>
-              </div>
-            </div>
-
-            <!-- District 4: мкр. Туран -->
-            <div class="district-card" onclick="filterByDistrict('Туран')">
-              <img src="assets/images/hero-shymkent.jpg" alt="мкр. Туран, Шымкент" loading="lazy">
-              <div class="district-card-overlay">
-                <span class="district-badge">19 объектов</span>
-                <div class="district-name">мкр. Туран</div>
-                <div class="district-desc">Быстрорастущий современный район у нового парка, высокая капитализация</div>
-              </div>
-            </div>
-
-            <!-- District 5: мкр. Асар -->
-            <div class="district-card" onclick="filterByDistrict('Асар')">
-              <img src="assets/images/property-asar.jpg" alt="мкр. Асар, Шымкент" loading="lazy">
-              <div class="district-card-overlay">
-                <span class="district-badge">7 коттеджей</span>
-                <div class="district-name">мкр. Асар</div>
-                <div class="district-desc">Тихие загородные кварталы, просторные участки для семейного проживания</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         Coldwell Banker Instant Home Valuation Section (Group 1 + Group 3 SVG)
-         ====================================================================== -->
-    <section class="section-valuation" id="valuation" aria-label="Онлайн-оценка недвижимости">
-      <div class="container">
-        
-        <div class="valuation-grid">
-          
-          <!-- Visual Column with Floating Pill -->
-          <div class="valuation-photo-box">
-            <img src="assets/images/estimate-bedroom.jpg" alt="Оценка стоимости жилья в Шымкенте" loading="lazy">
-            <div class="valuation-floating-pill">
-              <div class="valuation-pill-label">Ориентировочная оценка</div>
-              <div class="valuation-pill-value" id="pill-live-price">58 400 000 ₸</div>
-              <div style="font-size: 11px; color: #16a34a; font-weight: 600; margin-top: 4px;">
-                ✓ Актуально на октябрь 2026
-              </div>
-            </div>
-          </div>
-
-          <!-- Interactive Calculator Column -->
-          <div>
-            
-            <div class="valuation-steps-bar">
-              <div class="valuation-step-item active">
-                <span class="valuation-step-num">1</span>
-                <span>Локация</span>
-              </div>
-              <div class="valuation-step-item active">
-                <span class="valuation-step-num">2</span>
-                <span>Параметры</span>
-              </div>
-              <div class="valuation-step-item active">
-                <span class="valuation-step-num">3</span>
-                <span>Расчет MSH</span>
-              </div>
-            </div>
-
-            <h2 class="section-title-large" style="margin-bottom: 12px;">
-              Узнайте реальную рыночную стоимость вашей недвижимости
-            </h2>
-            <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6;">
-              Аналитический алгоритм MSH опирается на статистику 500+ реальных закрытых сделок в Шымкенте. Получите мгновенную оценку или закажите расширенный аудит брокера.
-            </p>
-
-            <form class="valuation-calc-form" id="valuation-calculator" onsubmit="event.preventDefault(); requestDetailedValuation();">
-              
-              <div class="calc-inputs-row">
-                <div>
-                  <label class="form-label" for="calc-district">Район Шымкента</label>
-                  <select id="calc-district" class="calc-select" onchange="calculateValuation()">
-                    <option value="miras" data-rate="580000">мкр. Мирас (Премиум)</option>
-                    <option value="nursat" data-rate="480000" selected>мкр. Нурсат (Бизнес/Центр)</option>
-                    <option value="tauke" data-rate="520000">пр. Тауке Хана (Центр)</option>
-                    <option value="turan" data-rate="390000">мкр. Туран (Новостройки)</option>
-                    <option value="asar" data-rate="360000">мкр. Асар / Самал</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="form-label" for="calc-type">Тип объекта</label>
-                  <select id="calc-type" class="calc-select" onchange="calculateValuation()">
-                    <option value="flat">Квартира в ЖК</option>
-                    <option value="house">Частная резиденция / дом</option>
-                    <option value="townhouse">Таунхаус</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                  <label class="form-label" for="calc-area" style="margin: 0;">Общая площадь объекта (м²):</label>
-                  <span id="calc-area-value" style="font-size: 15px; font-weight: 700; color: var(--navy-900);">95 м²</span>
-                </div>
-                <input type="range" id="calc-area" min="40" max="450" value="95" step="5" class="form-range" style="width: 100%; cursor: pointer;" oninput="updateAreaAndValuation(this.value)">
-              </div>
-
-              <!-- Calculated Price Display -->
-              <div class="calc-result-box">
-                <div>
-                  <div class="calc-result-label">Рыночный диапазон стоимости:</div>
-                  <div class="calc-result-price" id="calc-output-price">45 600 000 ₸</div>
-                </div>
-                <button type="submit" class="btn-primary-hero" style="font-size: 13px; padding: 12px 20px;">
-                  Получить отчет →
-                </button>
-              </div>
-
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         Sold Listings
-         ====================================================================== -->
-    <section class="section-sold" id="sold" aria-label="Проданные объекты">
-      <div class="container">
-        
-        <div class="sold-header-flex">
-          <div>
-            <h2 class="sold-title">Проданные объекты в Шымкенте</h2>
-          </div>
-          <button onclick="openConsultationModal('Запрос аналитики проданных объектов в Шымкенте')" class="btn-outline-hero" style="font-size: 13px; padding: 10px 20px;">
-            Смотреть все проданные объекты →
           </button>
         </div>
 
-        <div class="sold-grid">
-          
-          <!-- Sold 1 -->
-          <article class="sold-card">
-            <div class="sold-img-wrapper">
-              <img src="assets/images/sold-1.jpg" alt="Проданный жилой комплекс в Шымкенте" loading="lazy">
-              <span class="sold-badge">Продано</span>
-            </div>
-            <div class="sold-info">
-              <div class="sold-price">145 000 000 ₸</div>
-              <div class="sold-meta">4 спальни · 3 санузла · 280 м² · мкр. Туран, Шымкент</div>
-            </div>
-          </article>
-
-          <!-- Sold 2 -->
-          <article class="sold-card">
-            <div class="sold-img-wrapper">
-              <img src="assets/images/sold-2.jpg" alt="Проданный жилой дом в Самал-2" loading="lazy">
-              <span class="sold-badge">Продано</span>
-            </div>
-            <div class="sold-info">
-              <div class="sold-price">85 000 000 ₸</div>
-              <div class="sold-meta">3 спальни · 2 санузла · 165 м² · мкр. Самал-2, Шымкент</div>
-            </div>
-          </article>
-
-          <!-- Sold 3 -->
-          <article class="sold-card">
-            <div class="sold-img-wrapper">
-              <img src="assets/images/sold-3.jpg" alt="Проданная квартира в Шымкенте" loading="lazy">
-              <span class="sold-badge">Продано</span>
-            </div>
-            <div class="sold-info">
-              <div class="sold-price">62 000 000 ₸</div>
-              <div class="sold-meta">2 спальни · 1 санузел · 95 м² · мкр. Северо-Восток, Шымкент</div>
-            </div>
-          </article>
-
-        </div>
-
+        <nav class="mt-8 flex flex-col gap-2">
+          <a href="#properties" class="mobile-nav-item py-3 px-4 rounded-xl text-brand-light hover:bg-white/5 hover:text-brand-gold transition-all text-sm font-medium flex items-center justify-between">
+            <span>Объекты в продаже</span>
+            <span class="text-xs text-brand-muted">↗</span>
+          </a>
+          <a href="#filter-section" class="mobile-nav-item py-3 px-4 rounded-xl text-brand-light hover:bg-white/5 hover:text-brand-gold transition-all text-sm font-medium flex items-center justify-between">
+            <span>Подбор по параметрам</span>
+            <span class="text-xs text-brand-muted">↗</span>
+          </a>
+          <a href="#trust" class="mobile-nav-item py-3 px-4 rounded-xl text-brand-light hover:bg-white/5 hover:text-brand-gold transition-all text-sm font-medium flex items-center justify-between">
+            <span>Преимущества и стандарты</span>
+            <span class="text-xs text-brand-muted">↗</span>
+          </a>
+          <a href="#consultation" class="mobile-nav-item py-3 px-4 rounded-xl text-brand-light hover:bg-white/5 hover:text-brand-gold transition-all text-sm font-medium flex items-center justify-between">
+            <span>Индивидуальный подбор</span>
+            <span class="text-xs text-brand-muted">↗</span>
+          </a>
+          <a href="#footer" class="mobile-nav-item py-3 px-4 rounded-xl text-brand-light hover:bg-white/5 hover:text-brand-gold transition-all text-sm font-medium flex items-center justify-between">
+            <span>Контакты и офис</span>
+            <span class="text-xs text-brand-muted">↗</span>
+          </a>
+        </nav>
       </div>
-    </section>
 
-    <!-- ======================================================================
-         Brokers & Team
-         ====================================================================== -->
-    <section class="section-brokers" id="brokers" aria-label="Команда брокеров MSH">
-      <div class="container">
-        
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px;">
-          <div>
-            <h2 class="section-title-large" style="margin-bottom: 0;">Персональные брокеры Шымкента</h2>
-          </div>
-          <div class="carousel-nav-group">
-            <button class="btn-nav-round" id="broker-prev" aria-label="Предыдущий брокер">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m15 18-6-6 6-6"/>
-              </svg>
-            </button>
-            <button class="btn-nav-round" id="broker-next" aria-label="Следующий брокер">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
-            </button>
-          </div>
+      <div class="pt-6 border-t border-white/5 space-y-4">
+        <div class="text-xs text-brand-muted space-y-1">
+          <p class="font-medium text-white">Офис в Астане:</p>
+          <p>ул. Аскара Токпанова, 33, 3 этаж</p>
+          <p>Пн–Сб: 09:00 – 20:00</p>
         </div>
+        <div class="flex flex-col gap-2">
+          <a href="tel:+77027537510" class="w-full py-2.5 px-4 rounded-xl bg-white text-brand-black text-center text-xs font-semibold hover:bg-brand-gold transition-colors">
+            Позвонить: +7 702 753 75 10
+          </a>
+          <a href="https://wa.me/77027537510" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-center text-xs font-semibold hover:bg-emerald-600/30 transition-colors">
+            Написать в WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Horizontal Broker Strip -->
-        <div class="broker-slider-wrapper">
-          <div class="broker-strip">
+  <main class="flex-grow">
+
+    <!-- ========================================================================
+         2. HERO SECTION
+         ======================================================================== -->
+    <section class="relative min-h-[680px] h-screen max-h-[1050px] flex items-end pb-16 sm:pb-20 lg:pb-24 pt-32 overflow-hidden" aria-label="Главный экран">
+      
+      <!-- High-res Astana Architecture Panoramic Background -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=2000&q=85" 
+          alt="Панорама современной Астаны" 
+          class="w-full h-full object-cover object-center filter brightness-[0.88]"
+          loading="eager"
+        />
+        <!-- Seamless WCAG AAA Double Gradient -->
+        <div class="absolute inset-0 hero-gradient"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-3xl">
+          
+          <!-- Concise, Powerful Emotional Headline -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] mb-6">
+            Недвижимость Астаны, которую хочется назвать своим домом.
+          </h1>
+
+          <!-- Concise Supportive Text -->
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed mb-8">
+            Премиальные жилые комплексы и инвестиционные резиденции в Есильском, Алматинском и Нуринском районах. Полное юридическое сопровождение от брокеров с 10-летним стажем.
+          </p>
+
+          <!-- Dual Call to Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
             
-            <div class="broker-avatar-card active" data-broker-id="1">
-              <img src="assets/images/broker-1.jpg" alt="Данияр Агудо">
-              <div class="broker-avatar-overlay">Данияр Агудо</div>
-            </div>
+            <!-- Primary White High-Contrast CTA -->
+            <a href="#properties" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white text-brand-black hover:bg-brand-gold hover:text-brand-black transition-all text-sm font-semibold tracking-tight shadow-xl group">
+              <span>Смотреть объекты</span>
+              <span class="text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 font-bold">↗</span>
+            </a>
 
-            <div class="broker-avatar-card" data-broker-id="2">
-              <img src="assets/images/broker-2.jpg" alt="Айгерим Касымова">
-              <div class="broker-avatar-overlay">Айгерим Касымова</div>
-            </div>
-
-            <div class="broker-avatar-card" data-broker-id="3">
-              <img src="assets/images/broker-3.jpg" alt="Бауыржан Садыков">
-              <div class="broker-avatar-overlay">Бауыржан Садыков</div>
-            </div>
-
-            <div class="broker-avatar-card" data-broker-id="4">
-              <img src="assets/images/broker-4.jpg" alt="Ерлан Омаров">
-              <div class="broker-avatar-overlay">Ерлан Омаров</div>
-            </div>
-
-            <div class="broker-avatar-card" data-broker-id="5">
-              <img src="assets/images/broker-5.jpg" alt="Мадина Нургалиева">
-              <div class="broker-avatar-overlay">Мадина Нургалиева</div>
-            </div>
+            <!-- Secondary Translucent Quiz Modal Trigger -->
+            <button id="btn-hero-quiz" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-brand-surface/75 hover:bg-brand-surface border border-white/15 hover:border-white/30 backdrop-blur-md text-white transition-all text-sm font-medium tracking-tight group">
+              <span>Подобрать недвижимость</span>
+              <span class="text-xs text-brand-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 font-bold">↗</span>
+            </button>
 
           </div>
+
+          <!-- Trust Badges Under Hero -->
+          <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-2xl">
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">120+</div>
+              <div class="text-xs text-slate-400 mt-0.5 font-medium">Объектов в закрытой базе</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white tracking-tight">0%</div>
+              <div class="text-xs text-slate-400 mt-0.5 font-medium">Комиссия при покупке в новостройках</div>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <div class="text-2xl font-bold text-white tracking-tight">10 лет</div>
+              <div class="text-xs text-slate-400 mt-0.5 font-medium">Безупречной экспертизы на рынке столицы</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================
+         3. FAST INTERACTIVE FILTER BAR
+         ======================================================================== -->
+    <section id="filter-section" class="relative z-20 -mt-8 sm:-mt-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="bg-brand-surface border border-brand-border rounded-2xl p-4 sm:p-6 shadow-2xl backdrop-blur-xl">
+        
+        <!-- Category Segmented Control Tabs: Buy / Rent / Invest -->
+        <div class="flex items-center gap-1.5 p-1 bg-brand-black/60 rounded-xl w-fit border border-white/5 mb-6">
+          <button class="filter-type-btn active px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-white text-brand-black shadow-sm" data-type="buy">
+            Купить
+          </button>
+          <button class="filter-type-btn px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-brand-muted hover:text-white" data-type="rent">
+            Аренда
+          </button>
+          <button class="filter-type-btn px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-brand-muted hover:text-white" data-type="invest">
+            Инвестиции
+          </button>
         </div>
 
-        <!-- Active Broker Detailed Profile Box -->
-        <div class="broker-profile-box" id="active-broker-profile">
+        <!-- Filter Selectors Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 items-end">
           
-          <div class="broker-profile-img">
-            <img id="broker-detail-img" src="assets/images/broker-main.jpg" alt="Портрет брокера Данияр Агудо">
+          <!-- District Selector -->
+          <div>
+            <label for="filter-district" class="block text-xs font-medium text-brand-muted mb-2">Район Астаны</label>
+            <select id="filter-district" class="custom-select w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold/60 transition-colors">
+              <option value="all">Все районы</option>
+              <option value="Есильский">Есильский район</option>
+              <option value="Алматы">Алматинский район</option>
+              <option value="Нура">Нуринский район</option>
+              <option value="Байконыр">Байконырский район</option>
+            </select>
           </div>
 
-          <div class="broker-details-content">
-            <h3 class="broker-name-heading" id="broker-detail-name">Данияр Агудо</h3>
-            <div class="broker-role-subtitle" id="broker-detail-role">Основатель MSH · Ведущий эксперт по инвестициям</div>
+          <!-- Rooms Selector -->
+          <div>
+            <label for="filter-rooms" class="block text-xs font-medium text-brand-muted mb-2">Количество комнат</label>
+            <select id="filter-rooms" class="custom-select w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold/60 transition-colors">
+              <option value="all">Любая комнатность</option>
+              <option value="1">1-комнатные</option>
+              <option value="2">2-комнатные</option>
+              <option value="3">3-комнатные</option>
+              <option value="4+">4+ комнатные / Пентхаусы</option>
+            </select>
+          </div>
 
-            <div class="broker-contacts-row">
-              <div>
-                <strong>Телефон:</strong>
-                <a id="broker-detail-phone" href="tel:+77252456124" style="color: var(--navy-900); font-weight: 600;">+7 (7252) 45-61-24</a>
-              </div>
-              <span style="color: var(--surface-gray-300);">•</span>
-              <div>
-                <strong>Email:</strong>
-                <a id="broker-detail-email" href="mailto:daniyar@msh.kz" style="color: var(--navy-900);">daniyar@msh.kz</a>
-              </div>
-              <span style="color: var(--surface-gray-300);">•</span>
-              <div>
-                <strong>Telegram:</strong>
-                <a id="broker-detail-tg" href="https://t.me/daniyar_msh" target="_blank" rel="noopener" style="color: var(--navy-900); font-weight: 500;">@daniyar_msh</a>
-              </div>
-            </div>
+          <!-- Price Range Selector -->
+          <div>
+            <label for="filter-price" class="block text-xs font-medium text-brand-muted mb-2" id="filter-price-label">Диапазон бюджета</label>
+            <select id="filter-price" class="custom-select w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold/60 transition-colors">
+              <option value="all">Любой бюджет</option>
+              <option value="under60">до 60 млн ₸</option>
+              <option value="60to100">60 – 100 млн ₸</option>
+              <option value="100to160">100 – 160 млн ₸</option>
+              <option value="above160">от 160 млн ₸</option>
+            </select>
+          </div>
 
-            <p class="broker-bio-text" id="broker-detail-bio">
-              Более 15 лет формирует портфели частных и коммерческих активов в Шымкенте. Каждая сделка рассматривается как надежная долгосрочная инвестиция в ликвидность и семейный капитал. Провел более 180 закрытых сделок в премиальном сегменте города.
-            </p>
-
-            <blockquote class="broker-quote-block" id="broker-detail-quote">
-              «В премиальном сегменте доверие строится на точности цифр, юридической чистоте и конфиденциальности. MSH освобождает клиента от рутины и предлагает только объекты мирового уровня.»
-            </blockquote>
-
-            <button onclick="openConsultationModal('Встреча с брокером: Данияр Агудо')" class="btn-book-broker">
-              Записаться на встречу с брокером →
+          <!-- Submit Button with Dynamic Count -->
+          <div>
+            <button id="btn-apply-filters" class="w-full py-3 px-5 rounded-xl bg-white hover:bg-brand-gold text-brand-black font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
+              <span id="filter-count-label">Показать 9 объектов</span>
+              <span class="text-xs font-bold">↗</span>
             </button>
+          </div>
+
+        </div>
+
+        <!-- Filter Reset & Active Tags -->
+        <div class="mt-4 flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-white/5 text-xs">
+          <div id="filter-summary-tags" class="flex flex-wrap items-center gap-2 text-brand-muted">
+            <span>Фильтр:</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 font-medium" id="active-category-tag">Купить</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 font-medium" id="active-district-tag">Все районы</span>
+          </div>
+          <button id="btn-reset-filters" class="text-brand-muted hover:text-white transition-colors underline underline-offset-4">
+            Сбросить фильтры
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================
+         4. PROPERTIES CATALOG
+         ======================================================================== -->
+    <section id="properties" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
+            Избранные объекты в Астане
+          </h2>
+          <p class="text-sm sm:text-base text-brand-muted mt-2 max-w-xl">
+            Коллекция проверенных жилых комплексов бизнес- и премиум-класса с готовой юридической чистотой документов.
+          </p>
+        </div>
+
+        <!-- Status view counters -->
+        <div class="flex items-center gap-3 text-xs text-brand-muted">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-surface border border-brand-border">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Только актуальные объявления</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Properties Grid: 3 columns desktop, 2 col tablet, 1 col mobile -->
+      <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Rendered dynamically by JavaScript to guarantee real-time filter reactivity -->
+      </div>
+
+      <!-- Empty State Container -->
+      <div id="empty-state" class="hidden text-center py-20 px-4 bg-brand-surface rounded-2xl border border-brand-border mt-4">
+        <div class="w-12 h-12 mx-auto rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-muted mb-4">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Объекты с такими параметрами не найдены</h3>
+        <p class="text-sm text-brand-muted max-w-md mx-auto mb-6">
+          Попробуйте расширить диапазон бюджета или выбрать другой район. Либо оставьте заявку — наш брокер найдет объект в закрытой базе за 2 часа.
+        </p>
+        <button onclick="resetFilters()" class="px-5 py-2.5 rounded-xl bg-white text-brand-black text-xs font-semibold hover:bg-brand-gold transition-colors">
+          Сбросить фильтры
+        </button>
+      </div>
+
+      <!-- Direct Consultation Banner under catalog -->
+      <div class="mt-16 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-brand-surface via-brand-card to-brand-surface border border-brand-border flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-white">Не нашли подходящий вариант в открытом доступе?</h3>
+          <p class="text-xs sm:text-sm text-brand-muted mt-1 max-w-xl">
+            Более 30 эксклюзивных резиденций и пентхаусов продаются по закрытым соглашениям о конфиденциальности.
+          </p>
+        </div>
+        <button onclick="openQuizModal('Запрос объектов из закрытой базы')" class="whitespace-nowrap px-6 py-3 rounded-xl bg-white text-brand-black hover:bg-brand-gold transition-colors text-xs sm:text-sm font-semibold">
+          Запросить закрытую базу ↗
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================
+         5. TRUST & ADVANTAGES SECTION (No Clichés, Purposeful Cards)
+         ======================================================================== -->
+    <section id="trust" class="py-20 sm:py-28 border-t border-brand-border bg-brand-surface/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
+            Стандарты работы Atlant Estate
+          </h2>
+          <p class="text-sm sm:text-base text-brand-muted mt-2">
+            Защищаем финансовые интересы клиентов при покупке, продаже и инвестициях в столичную недвижимость.
+          </p>
+        </div>
+
+        <!-- 3 Strict Functional Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          
+          <!-- Card 1 -->
+          <div class="bg-brand-card border border-brand-border rounded-2xl p-7 hover:border-brand-borderLight transition-all">
+            <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-brand-gold mb-6">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2.5">Юридическая экспертиза сделок</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">
+              Аудит прав собственности, проверка залогов, арестов и истории объекта по реестрам РК. Грамотное оформление договоров долевого участия и купли-продажи с нотариальным сопровождением.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-brand-card border border-brand-border rounded-2xl p-7 hover:border-brand-borderLight transition-all">
+            <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-brand-gold mb-6">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2.5">Закрытая база объектов</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">
+              Прямой доступ к квартирам от топ-менеджеров и инвесторов до публикации на открытых сайтах. Возможность первыми выкупать лоты по предстартовым ценам в лучших ЖК столицы.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-brand-card border border-brand-border rounded-2xl p-7 hover:border-brand-borderLight transition-all">
+            <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-brand-gold mb-6">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2.5">Персональный брокер 24/7</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">
+              Один брокер ведет вас от первой консультации до передачи ключей. Организация выездных просмотров на автомобиле агентства, конфиденциальность и представление только ваших интересов в торгах.
+            </p>
           </div>
 
         </div>
@@ -710,65 +522,90 @@
       </div>
     </section>
 
-    <!-- ======================================================================
-         Reviews
-         ====================================================================== -->
-    <section class="section-reviews" id="reviews" aria-label="Отзывы клиентов">
-      <div class="container">
+
+    <!-- ========================================================================
+         6. INDIVIDUAL SELECTION FORM / CTA SECTION
+         ======================================================================== -->
+    <section id="consultation" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-brand-surface border border-brand-border rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden">
         
-        <div style="margin-bottom: 40px;">
-          <h2 class="section-title-large" style="margin-bottom: 0;">Отзывы клиентов</h2>
-        </div>
-
-        <div class="reviews-grid">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <!-- Review 1 -->
-          <article class="review-card">
-            <div class="review-card-header">
-              <img src="assets/images/review-1.jpg" alt="Олжас и Динара Темировы" class="review-photo">
-              <div>
-                <div class="review-author-name">Олжас и Динара Темировы</div>
-                <div class="review-deal-badge">Покупка резиденции в мкр. Мирас</div>
-              </div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote-text">
-              «Искали просторный дом для большой семьи почти полгода. Команда MSH за две недели нашла закрытый объект, которого даже не было на рынке. Полное юридическое сопровождение, все прозрачно и спокойно.»
+          <!-- Left Content -->
+          <div class="lg:col-span-6 space-y-6">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight">
+              Индивидуальный подбор недвижимости в Астане
+            </h2>
+            <p class="text-sm sm:text-base text-brand-muted leading-relaxed">
+              Заполните 3 поля, и старший эксперт Atlant Estate подготовит подборку из 5 объектов под ваш запрос (включая непубличные лоты) в течение 25 минут.
             </p>
-            <div class="review-date">Сентябрь 2026 · Шымкент</div>
-          </article>
 
-          <!-- Review 2 -->
-          <article class="review-card">
-            <div class="review-card-header">
-              <img src="assets/images/review-2.jpg" alt="Кайрат Жумабаев" class="review-photo">
-              <div>
-                <div class="review-author-name">Кайрат Жумабаев</div>
-                <div class="review-deal-badge">Инвестиционный портфель в новостройках</div>
+            <div class="pt-4 space-y-3 text-xs sm:text-sm text-slate-300">
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Бесплатная консультация и расчет доходности</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Организация просмотров в день обращения</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">✓</span>
+                <span>Отправка презентаций в WhatsApp или Telegram</span>
               </div>
             </div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote-text">
-              «Сотрудничаю с брокерами MSH уже по третьей сделке. Все цифры по доходности и ликвидности подтвердились на практике. Профессионалы высочайшего уровня на юге Казахстана.»
-            </p>
-            <div class="review-date">Август 2026 · Шымкент</div>
-          </article>
+          </div>
 
-          <!-- Review 3 -->
-          <article class="review-card">
-            <div class="review-card-header">
-              <img src="assets/images/review-3.jpg" alt="Айнур Бекенова" class="review-photo">
+          <!-- Right Clean Form -->
+          <div class="lg:col-span-6">
+            <form id="consultation-form" class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-border space-y-4 shadow-xl">
+              
               <div>
-                <div class="review-author-name">Айнур Бекенова</div>
-                <div class="review-deal-badge">Квартира премиум-класса на пр. Тауке Хана</div>
+                <label for="form-name" class="block text-xs font-medium text-brand-muted mb-2">Ваше имя</label>
+                <input 
+                  type="text" 
+                  id="form-name" 
+                  required 
+                  placeholder="Алихан"
+                  class="w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold transition-colors"
+                >
               </div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote-text">
-              «Превосходный сервис! Меня встретили, показали все варианты, организовали проверку документов за один день. Очень довольна выбором нового жилья для семьи.»
-            </p>
-            <div class="review-date">Октябрь 2026 · Шымкент</div>
-          </article>
+
+              <div>
+                <label for="form-phone" class="block text-xs font-medium text-brand-muted mb-2">Телефон (Казахстан)</label>
+                <input 
+                  type="tel" 
+                  id="form-phone" 
+                  required 
+                  placeholder="+7 (702) 753-75-10"
+                  class="phone-mask-input w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold transition-colors"
+                >
+              </div>
+
+              <div>
+                <label for="form-budget" class="block text-xs font-medium text-brand-muted mb-2">Желаемый бюджет / цель</label>
+                <select id="form-budget" class="custom-select w-full bg-brand-surface border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-gold transition-colors">
+                  <option value="Покупка: 40 – 70 млн ₸">Покупка: 40 – 70 млн ₸</option>
+                  <option value="Покупка: 70 – 120 млн ₸" selected>Покупка: 70 – 120 млн ₸</option>
+                  <option value="Покупка: от 120 млн ₸">Покупка: от 120 млн ₸ (Премиум / Пентхаус)</option>
+                  <option value="Долгосрочная аренда">Долгосрочная аренда (от 400 000 ₸/мес)</option>
+                  <option value="Инвестиции с доходностью">Инвестиции с арендной доходностью</option>
+                </select>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" id="btn-submit-form" class="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-brand-gold text-brand-black font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-lg">
+                  <span>Получить персональную подборку</span>
+                  <span class="text-xs font-bold">↗</span>
+                </button>
+              </div>
+
+              <p class="text-[11px] text-brand-muted text-center leading-normal pt-1">
+                Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Конфиденциальность гарантируется.
+              </p>
+
+            </form>
+          </div>
 
         </div>
 
@@ -777,151 +614,1273 @@
 
   </main>
 
+
   <!-- ========================================================================
-       Footer (Dark Navy)
+       7. FOOTER & LOCATION
        ======================================================================== -->
-  <footer class="site-footer" id="contact">
-    <div class="container">
+  <footer id="footer" class="border-t border-brand-border bg-brand-surface pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="footer-main-grid">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-14 border-b border-white/5">
         
-        <!-- Brand & Mission -->
-        <div class="footer-brand-col">
-          <div class="footer-logo">MSH</div>
-          <p class="footer-descriptor">
-            Агентство частной и инвестиционной недвижимости в Шымкенте. Формируем культуру премиального сервиса и надежных сделок на юге Казахстана.
+        <!-- Brand Info -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center font-bold text-brand-gold text-lg">AE</div>
+            <div>
+              <span class="text-base font-bold tracking-tight text-white block">Atlant Estate</span>
+              <span class="text-xs text-brand-muted">Агентство недвижимости г. Астана</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-brand-muted leading-relaxed max-w-sm">
+            Профессиональный брокеридж частной, инвестиционной и коммерческой недвижимости в Астане. Доверие клиентов и конфиденциальность сделок с 2016 года.
           </p>
-          <div class="footer-social-links">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
+          <div class="pt-2 flex items-center gap-3">
+            <a href="https://wa.me/77027537510" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-brand-card border border-brand-border hover:border-brand-gold/50 text-white hover:text-brand-gold transition-all text-xs font-medium flex items-center gap-2" aria-label="Чат в WhatsApp">
+              <span>WhatsApp</span>
             </a>
-            <a href="https://t.me" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Telegram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"/>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-              </svg>
-            </a>
-            <a href="https://whatsapp.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="WhatsApp">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-              </svg>
+            <a href="tel:+77027537510" class="p-2.5 rounded-xl bg-brand-card border border-brand-border hover:border-brand-gold/50 text-white hover:text-brand-gold transition-all text-xs font-medium flex items-center gap-2" aria-label="Позвонить">
+              <span>+7 702 753 75 10</span>
             </a>
           </div>
         </div>
 
-        <!-- Col 1: Компания -->
-        <div>
-          <div class="footer-col-title">Компания</div>
-          <ul class="footer-links-list">
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#brokers">Команда экспертов</a></li>
-            <li><a href="#" onclick="openConsultationModal('Карьера в MSH'); return false;">Вакансии и карьера</a></li>
-            <li><a href="#" onclick="openConsultationModal('Пресса о MSH'); return false;">Пресса о нас</a></li>
-            <li><a href="#about">Корпоративные стандарты</a></li>
+        <!-- Contact Details -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Контакты офиса</h4>
+          <ul class="space-y-3 text-xs sm:text-sm text-brand-muted">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>г. Астана, ул. Аскара Токпанова, 33, 3 этаж</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:+77027537510" class="text-white hover:text-brand-gold transition-colors font-semibold">+7 702 753 75 10</a>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <a href="mailto:atlantestate8@gmail.com" class="hover:text-white transition-colors">atlantestate8@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2.5 pt-1 text-slate-400">
+              <svg class="w-4 h-4 text-brand-muted flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Пн–Сб: 09:00 – 20:00 (Вс по записи)</span>
+            </li>
           </ul>
         </div>
 
-        <!-- Col 2: Услуги -->
-        <div>
-          <div class="footer-col-title">Услуги</div>
-          <ul class="footer-links-list">
-            <li><a href="#" onclick="openConsultationModal('Инвестиционный консалтинг'); return false;">Инвестиционный консалтинг</a></li>
-            <li><a href="#properties">Подбор жилых резиденций</a></li>
-            <li><a href="#" onclick="openConsultationModal('Коммерческие площади'); return false;">Коммерческие площади</a></li>
-            <li><a href="#" onclick="openConsultationModal('Оценка ликвидности'); return false;">Оценка ликвидности</a></li>
-            <li><a href="#" onclick="openConsultationModal('Юридический аудит'); return false;">Юридический аудит</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Каталог районов -->
-        <div>
-          <div class="footer-col-title">Каталог</div>
-          <ul class="footer-links-list">
-            <li><a href="#properties">мкр. Мирас</a></li>
-            <li><a href="#properties">мкр. Туран</a></li>
-            <li><a href="#properties">мкр. Нурсат</a></li>
-            <li><a href="#properties">пр. Тауке Хана</a></li>
-            <li><a href="#" onclick="openConsultationModal('Доступ в закрытую коллекцию Off-Market'); return false;">Закрытая коллекция (Off-Market)</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Прямая связь -->
-        <div>
-          <div class="footer-col-title">Контакты</div>
-          <div class="footer-direct-contact">
-            <a href="tel:+77252456124" class="contact-phone-highlight">+7 (7252) 45-61-24</a>
-            <div>contact@msh.kz</div>
-            <div>г. Шымкент, БЦ "Talap Tower", 8 этаж</div>
-            <div style="margin-top: 6px;">Пн–Сб: 09:00 — 20:00</div>
+        <!-- Interactive Stylized Location Map Plate -->
+        <div class="lg:col-span-5">
+          <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden h-full flex flex-col justify-between">
+            <div class="p-4 sm:p-5 border-b border-white/5 flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-white block">Главный офис Atlant Estate</span>
+                <span class="text-[11px] text-brand-muted">Астана, район Алматы / Есиль</span>
+              </div>
+              <a href="https://2gis.kz/astana/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D1%81%D0%BA%D0%B0%D1%80%D0%B0%20%D0%A2%D0%BE%D0%BA%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0%2033" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-brand-gold text-[11px] font-semibold transition-colors flex items-center gap-1">
+                <span>Открыть в 2GIS</span>
+                <span>↗</span>
+              </a>
+            </div>
+            
+            <!-- Map Container with Dark Minimalist Preview and Direct Interactive Links -->
+            <div class="relative h-44 sm:h-48 w-full bg-slate-900 overflow-hidden">
+              <iframe 
+                title="Карта расположения офиса Atlant Estate" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.6548777937397!2d71.43981847683935!3d51.13327123800685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42458402db3b7c25%3A0xbc4e8e19e7a884f!2z0YPQu9C40YbQsCDQkNGB0LrQsNGA0LAg0KLQvtC60L_QsNC90L7QstCwIDMzLCDQkNGB0YLQsNC90LAgMDEwMDAwLCDQmtCw0LfQsNGF0YHRgtCw0L0!5e0!3m2!1sru!2skz!4v1718000000000!5m2!1sru!2skz" 
+                class="w-full h-full border-0 filter grayscale invert contrast-125 opacity-70 hover:opacity-95 transition-opacity" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <div class="absolute bottom-2.5 left-2.5 bg-brand-surface/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[11px] text-white flex items-center gap-1.5 pointer-events-none">
+                <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
+                <span>ул. Аскара Токпанова, 33 (3 этаж)</span>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Legal Disclaimer -->
-      <div class="footer-disclaimer-box">
-        Информация, представленная на сайте, носит исключительно ознакомительный характер и не является публичной офертой. Все объекты недвижимости агентства MSH и партнеров. Точность любого описания не гарантируется. Все измерения и указанные площади являются приблизительными, и вся информация должна быть подтверждена клиентом или привлеченным архитектором или партнером. Компания MSH строго поддерживает равные возможности в сфере жилищного обеспечения и соблюдает все принципы справедливого жилищного обеспечения, установленные законом.
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="footer-bottom-bar">
-        <div class="footer-legal-links">
-          <a href="#" onclick="alert('Политика конфиденциальности: персональные данные защищены законом РК.'); return false;">Политика конфиденциальности</a>
-          <a href="#" onclick="alert('Пользовательское соглашение: сервис агентства MSH.'); return false;">Пользовательское соглашение</a>
-          <a href="#site-header">Карта сайта</a>
-        </div>
+      <!-- Bottom Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-muted">
         <div>
-          © 2026 ТОО "MSH Real Estate Group". Все права защищены.
+          © 2026 Atlant Estate. Все права защищены. Астана, Казахстан.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Политика конфиденциальности</a>
+          <a href="#" class="hover:text-white transition-colors">Правовая информация</a>
         </div>
       </div>
 
     </div>
   </footer>
 
+
   <!-- ========================================================================
-       Consultation Modal
+       8. MODALS & POPUPS
        ======================================================================== -->
-  <div class="consultation-modal" id="consultation-modal" aria-hidden="true" role="dialog">
-    <div class="modal-content-box">
-      <button class="modal-close-btn" id="modal-close-btn" aria-label="Закрыть окно">✕</button>
-      <h3 class="modal-title" id="modal-topic-title">Консультация с брокером</h3>
-      <p class="modal-desc">Оставьте ваши контактные данные, и специалист MSH свяжется с вами в течение 10 минут.</p>
 
-      <form id="consultation-form">
-        <div class="form-group">
-          <label class="form-label" for="client-name">Ваше имя</label>
-          <input type="text" id="client-name" class="form-input" placeholder="Например: Арман" required>
+  <!-- Modal: Property Detailed Preview -->
+  <div id="modal-property-detail" class="fixed inset-0 z-50 hidden">
+    <div id="property-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"></div>
+    <div class="fixed inset-0 z-10 overflow-y-auto flex items-center justify-center p-4 sm:p-6">
+      <div class="bg-brand-surface border border-brand-border rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl relative text-left transform transition-all">
+        
+        <!-- Modal Close Button -->
+        <button id="btn-close-property-modal" class="absolute top-4 right-4 z-20 p-2 rounded-full bg-brand-black/70 hover:bg-brand-black text-white border border-white/10 transition-colors" aria-label="Закрыть модальное окно">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <!-- Modal Content Container -->
+        <div id="property-modal-content">
+          <!-- Dynamic Content Injected by JS -->
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="client-phone">Номер телефона (WhatsApp)</label>
-          <input type="tel" id="client-phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="client-interest">Интересующий район или объект</label>
-          <input type="text" id="client-interest" class="form-input" placeholder="мкр. Мирас, Туран, частный дом, новостройка...">
-        </div>
-
-        <button type="submit" class="btn-submit-modal">Отправить запрос брокеру</button>
-      </form>
+      </div>
     </div>
   </div>
 
-  <!-- Floating Broker Audit Circle Button (5x more compact) -->
-  <button class="floating-agent-circle" onclick="openConsultationModal('Экспресс-консультация с персональным брокером')" role="button" aria-label="Брокерский аудит MSH — консультация" title="Брокерский аудит MSH">
-    <div class="floating-agent-icon-inner">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-      </svg>
-    </div>
-    <span class="floating-agent-badge-pulse" aria-hidden="true"></span>
-  </button>
 
-  <script src="js/main.js"></script>
+  <!-- Modal: Individual Selection Quiz -->
+  <div id="modal-quiz" class="fixed inset-0 z-50 hidden">
+    <div id="quiz-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"></div>
+    <div class="fixed inset-0 z-10 overflow-y-auto flex items-center justify-center p-4 sm:p-6">
+      <div class="bg-brand-surface border border-brand-border rounded-2xl max-w-xl w-full p-6 sm:p-8 overflow-hidden shadow-2xl relative text-left">
+        
+        <button id="btn-close-quiz-modal" class="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors" aria-label="Закрыть квиз">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-2 text-xs font-semibold text-brand-gold uppercase tracking-wider mb-1">
+            <span>Atlant Estate</span>
+            <span>•</span>
+            <span>Персональный подбор</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight" id="quiz-title">
+            Подбор недвижимости по вашим критериям
+          </h3>
+          <p class="text-xs sm:text-sm text-brand-muted mt-1.5">
+            Ответьте на несколько вопросов, чтобы получить подборку проверенных объектов от брокера.
+          </p>
+        </div>
+
+        <form id="quiz-form" class="space-y-5">
+          <!-- Step 1: Goal -->
+          <div>
+            <label class="block text-xs font-semibold text-white mb-2">1. Какова цель обращения?</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="cursor-pointer">
+                <input type="radio" name="quiz_goal" value="Покупка для жизни" checked class="peer sr-only">
+                <div class="p-3 text-center rounded-xl bg-brand-card border border-brand-border text-xs text-brand-muted peer-checked:bg-white peer-checked:text-brand-black peer-checked:font-semibold transition-all">
+                  Для жизни
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="quiz_goal" value="Инвестиции" class="peer sr-only">
+                <div class="p-3 text-center rounded-xl bg-brand-card border border-brand-border text-xs text-brand-muted peer-checked:bg-white peer-checked:text-brand-black peer-checked:font-semibold transition-all">
+                  Инвестиции
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="quiz_goal" value="Аренда" class="peer sr-only">
+                <div class="p-3 text-center rounded-xl bg-brand-card border border-brand-border text-xs text-brand-muted peer-checked:bg-white peer-checked:text-brand-black peer-checked:font-semibold transition-all">
+                  Аренда
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: District -->
+          <div>
+            <label class="block text-xs font-semibold text-white mb-2">2. Предпочитаемый район Астаны</label>
+            <select name="quiz_district" class="custom-select w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-brand-gold">
+              <option value="Есильский (Левый берег, EXPO, Байтерек)">Есильский (Левый берег, EXPO, Байтерек)</option>
+              <option value="Алматы (Правый берег, Президентский парк)">Алматинский (Правый берег, Президентский парк)</option>
+              <option value="Нура (ТРЦ Хан Шатыр, пр. Туран)">Нуринский (ТРЦ Хан Шатыр, пр. Туран)</option>
+              <option value="Байконыр (Деловой центр)">Байконырский (Деловой центр)</option>
+              <option value="Рассмотрю рекомендации эксперта">Рассмотрю рекомендации эксперта</option>
+            </select>
+          </div>
+
+          <!-- Step 3: Contact Info -->
+          <div class="space-y-3 pt-1">
+            <label class="block text-xs font-semibold text-white">3. Куда отправить готовую подборку?</label>
+            <input 
+              type="text" 
+              name="quiz_name" 
+              required 
+              placeholder="Ваше имя" 
+              class="w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold"
+            >
+            <input 
+              type="tel" 
+              name="quiz_phone" 
+              required 
+              placeholder="+7 (702) 753-75-10" 
+              class="phone-mask-input w-full bg-brand-card border border-brand-border rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold"
+            >
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-white hover:bg-brand-gold text-brand-black font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-lg">
+            <span>Получить подборку в течение 25 минут</span>
+            <span class="font-bold">↗</span>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Drawer: Favorites Modal Panel -->
+  <div id="drawer-favorites" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-none">
+    <div id="drawer-favorites-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+    <div class="absolute top-0 right-0 w-full max-w-md h-full bg-brand-surface border-l border-brand-border p-6 flex flex-col justify-between overflow-y-auto">
+      
+      <div>
+        <div class="flex items-center justify-between pb-5 border-b border-white/5">
+          <div class="flex items-center gap-2">
+            <h3 class="text-base font-bold text-white">Сохраненные объекты</h3>
+            <span id="favorites-drawer-count" class="px-2 py-0.5 rounded-full bg-brand-card border border-brand-border text-xs text-brand-gold font-bold">0</span>
+          </div>
+          <button id="btn-close-favorites-drawer" class="p-2 rounded-lg text-brand-muted hover:text-white hover:bg-white/5 transition-all">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="favorites-list" class="mt-6 space-y-4">
+          <!-- Favorites items injected dynamically -->
+        </div>
+
+        <!-- Favorites Empty state -->
+        <div id="favorites-empty-msg" class="py-16 text-center text-brand-muted space-y-3">
+          <div class="w-10 h-10 mx-auto rounded-full bg-white/5 flex items-center justify-center text-brand-muted">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <p class="text-xs">Вы еще не добавили ни одного объекта в избранное.</p>
+          <a href="#properties" onclick="closeFavoritesDrawer()" class="inline-block text-xs font-semibold text-brand-gold hover:underline">
+            Перейти к каталогу объектов ↗
+          </a>
+        </div>
+      </div>
+
+      <div id="favorites-footer" class="hidden pt-5 border-t border-white/5 space-y-3">
+        <button onclick="requestAllFavoritesConsultation()" class="w-full py-3 rounded-xl bg-white text-brand-black hover:bg-brand-gold font-semibold text-xs transition-colors">
+          Запросить презентацию по всем объектам ↗
+        </button>
+        <button onclick="clearAllFavorites()" class="w-full py-2 text-xs text-brand-muted hover:text-rose-400 transition-colors">
+          Очистить список избранного
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Toast Notifications Container -->
+  <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+
+  <!-- ========================================================================
+       9. FIXED QUICK CALL / WHATSAPP ACTION BUTTON
+       ======================================================================== -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    
+    <!-- Quick Contact Popup Menu -->
+    <div id="quick-contact-menu" class="hidden flex-col gap-2 p-2 rounded-2xl bg-brand-surface/95 border border-brand-border shadow-2xl backdrop-blur-xl transition-all">
+      <a href="https://wa.me/77027537510" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-emerald-600/15 hover:bg-emerald-600/25 border border-emerald-500/30 text-emerald-300 text-xs font-semibold transition-colors">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.199.662.589 1.221.771 1.394.858.173.086.274.072.375-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
+        </svg>
+        <span>Написать в WhatsApp</span>
+      </a>
+      <a href="tel:+77027537510" class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-semibold transition-colors">
+        <svg class="w-4 h-4 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <span>Позвонить +7 702 753 75 10</span>
+      </a>
+    </div>
+
+    <!-- Main Floating Trigger Button -->
+    <button id="btn-floating-contact" class="pulse-whatsapp flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-2xl transition-all" aria-label="Связаться с брокером">
+      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.199.662.589 1.221.771 1.394.858.173.086.274.072.375-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/>
+      </svg>
+      <span class="hidden sm:inline">Связаться с брокером</span>
+    </button>
+
+  </div>
+
+
+  <!-- ========================================================================
+       10. CORE SCRIPT LOGIC (Modular Vanilla JS)
+       ======================================================================== -->
+  <script>
+    /**
+     * ATLANT ESTATE — CORE REAL ESTATE ENGINE
+     * Clean modular vanilla JavaScript
+     */
+
+    // Real-estate dataset strictly tailored to Astana elite and business developments
+    const PROPERTIES_DATA = [
+      {
+        id: 1,
+        title: "ЖК Highvill Park II",
+        type: "buy",
+        district: "Есильский",
+        address: "ул. Кабанбай батыра, 42",
+        rooms: 4,
+        area: 186,
+        floor: "16 из 22",
+        priceKzt: 145000000,
+        priceFormatted: "145 000 000 ₸",
+        status: "Сдан",
+        classBadge: "Премиум-класс",
+        developer: "Highvill Kazakhstan",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        description: "Видовой пентхаус с панорамным остеклением на Ботанический сад. Встроенная система «Умный дом», премиальная шумоизоляция, 2 закрепленных машиноместа в подземном паркинге.",
+        features: ["Панорама на парк", "Потолки 3.4 м", "Умный дом", "Паркинг включен"]
+      },
+      {
+        id: 2,
+        title: "ЖК Akbulak Riviera",
+        type: "buy",
+        district: "Алматы",
+        address: "Набережная р. Акбулак, 15",
+        rooms: 3,
+        area: 142,
+        floor: "7 из 9",
+        priceKzt: 128000000,
+        priceFormatted: "128 000 000 ₸",
+        status: "Сдан",
+        classBadge: "De Luxe",
+        developer: "BI Group",
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+        description: "Клубная резиденция на первой береговой линии реки Акбулак. Собственный приватный выход на благоустроенную набережную, просторная терраса и лобби с консьерж-сервисом 24/7.",
+        features: ["Первая линия реки", "Приватная терраса", "Потолки 3.3 м", "Клубный дом"]
+      },
+      {
+        id: 3,
+        title: "ЖК Sensata Plaza",
+        type: "buy",
+        district: "Нура",
+        address: "пр. Туран, 89",
+        rooms: 2,
+        area: 78,
+        floor: "11 из 18",
+        priceKzt: 58500000,
+        priceFormatted: "58 500 000 ₸",
+        status: "Сдан",
+        classBadge: "Бизнес-класс",
+        developer: "Sensata Group",
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+        description: "Современные апартаменты с мастер-спальней и гардеробной. Скоростные бесшумные лифты, дизайнерские входные группы, закрытый безопасный двор без автомобилей.",
+        features: ["Рядом ТРЦ Хан Шатыр", "Мастер-спальня", "Закрытый двор", "Дизайнерский холл"]
+      },
+      {
+        id: 4,
+        title: "ЖК Grand Turan",
+        type: "rent",
+        district: "Есильский",
+        address: "пр. Туран, 46/1",
+        rooms: 3,
+        area: 115,
+        floor: "14 из 21",
+        priceKzt: 750000,
+        priceFormatted: "750 000 ₸ / мес",
+        status: "Сдан",
+        classBadge: "Бизнес-класс",
+        developer: "BI Group",
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+        description: "Видовая квартира после авторского дизайнерского ремонта. Полная комплектация техникой премиального уровня Miele, кондиционирование в каждой комнате, охраняемый периметр.",
+        features: ["Вся техника Miele", "Дизайнерский ремонт", "Вид на пр. Туран", "Включен клининг"]
+      },
+      {
+        id: 5,
+        title: "ЖК Highvill Gold Ishim",
+        type: "buy",
+        district: "Алматы",
+        address: "ул. Ахмета Байтурсынова, 1",
+        rooms: 4,
+        area: 164,
+        floor: "19 из 24",
+        priceKzt: 162000000,
+        priceFormatted: "162 000 000 ₸",
+        status: "Сдан",
+        classBadge: "Элит-класс",
+        developer: "Highvill Kazakhstan",
+        image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80",
+        description: "Роскошный семейный пентхаус с витражным остеклением на реку Ишим и Президентский парк. Японская система вентиляции, 3 санузла, отдельная постирочная и гардеробная.",
+        features: ["Вид на Ишим", "3 санузла", "Президентский парк", "Японская инженерия"]
+      },
+      {
+        id: 6,
+        title: "ЖК BI City Seoul",
+        type: "buy",
+        district: "Есильский",
+        address: "ул. Сауран, 38",
+        rooms: 2,
+        area: 68,
+        floor: "8 из 16",
+        priceKzt: 49800000,
+        priceFormatted: "49 800 000 ₸",
+        status: "Сдан",
+        classBadge: "Комфорт+",
+        developer: "BI Group",
+        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+        description: "Уютная квартира с продуманной эргономикой в шаговой доступности от ТРЦ Mega Silk Way и Экспо-парка. Готова к заселению, остается встроенная мебель и техника.",
+        features: ["Рядом Mega Silk Way", "Пешком до EXPO", "Встроенная мебель", "Светлая сторона"]
+      },
+      {
+        id: 7,
+        title: "ЖК Promenade Expo",
+        type: "invest",
+        district: "Есильский",
+        address: "пр. Мангилик Ел, 53",
+        rooms: 3,
+        area: 104,
+        floor: "12 из 18",
+        priceKzt: 76000000,
+        priceFormatted: "76 000 000 ₸",
+        status: "Сдан",
+        classBadge: "Бизнес-класс",
+        developer: "BI Group",
+        image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
+        description: "Действующий арендный бизнес с подтвержденной доходностью 14.8% годовых. Заключен долгосрочный договор с сотрудником международной финансовой организации.",
+        features: ["Доходность 14.8%", "Действующий арендатор", "Пр. Мангилик Ел", "Быстрая окупаемость"]
+      },
+      {
+        id: 8,
+        title: "ЖК Ray Residence",
+        type: "rent",
+        district: "Нура",
+        address: "ул. Кайыма Мухамедханова, 10",
+        rooms: 3,
+        area: 125,
+        floor: "9 из 14",
+        priceKzt: 850000,
+        priceFormatted: "850 000 ₸ / мес",
+        status: "Сдан",
+        classBadge: "Бизнес+",
+        developer: "Sensata Group",
+        image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+        description: "Элегантная резиденция в скандинавском минималистичном стиле. Панорамный вид во внутренний зеленый сад-парк, круглосуточная охрана, консьерж, собственное парковочное место.",
+        features: ["Скандинавский интерьер", "Вид во двор-парк", "Паркоместо в цене", "Охрана 24/7"]
+      },
+      {
+        id: 9,
+        title: "ЖК Talan Towers Residences",
+        type: "buy",
+        district: "Есильский",
+        address: "ул. Достык, 16",
+        rooms: 4,
+        area: 210,
+        floor: "23 из 30",
+        priceKzt: 320000000,
+        priceFormatted: "320 000 000 ₸",
+        status: "Сдан",
+        classBadge: "De Luxe",
+        developer: "Verny Capital",
+        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80",
+        description: "Эксклюзивные резиденции с сервисом пятизвездочного отеля The Ritz-Carlton. Прямой панорамный обзор Байтерека и центральной площади. Доступ в фитнес-центр, SPA и консьерж 24/7.",
+        features: ["Сервис The Ritz-Carlton", "Прямой вид на Байтерек", "Спа и бассейн", "Высший уровень охраны"]
+      },
+      {
+        id: 10,
+        title: "ЖК Астана Молл Квартал",
+        type: "invest",
+        district: "Байконыр",
+        address: "пр. Тауелсиздик, 34",
+        rooms: 2,
+        area: 72,
+        floor: "6 из 12",
+        priceKzt: 46500000,
+        priceFormatted: "46 500 000 ₸",
+        status: "Сдан",
+        classBadge: "Комфорт+",
+        developer: "Bazis-A",
+        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
+        description: "Высоколиквидный лот в развитом деловом квартале. Идеально под посуточную и корпоративную аренду с прогнозируемой окупаемостью до 7.5 лет. Качественный ремонт.",
+        features: ["Окупаемость 7.5 лет", "Деловой центр", "Высокий спрос", "Полная мебель"]
+      },
+      {
+        id: 11,
+        title: "ЖК Премьера",
+        type: "rent",
+        district: "Байконыр",
+        address: "ул. Кенесары, 40",
+        rooms: 2,
+        area: 65,
+        floor: "5 из 10",
+        priceKzt: 420000,
+        priceFormatted: "420 000 ₸ / мес",
+        status: "Сдан",
+        classBadge: "Бизнес-класс",
+        developer: "Orda Invest",
+        image: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=1200&q=80",
+        description: "Светлая тихая квартира в историческом центре правого берега столицы. Закрытый зеленый двор, развитая инфраструктура, свежий ремонт в классических тонах.",
+        features: ["Исторический центр", "Тихий двор", "Классический ремонт", "Шаговая доступность"]
+      },
+      {
+        id: 12,
+        title: "ЖК Зеленый Квартал",
+        type: "invest",
+        district: "Нура",
+        address: "ул. Сыганак, 17/10",
+        rooms: 3,
+        area: 110,
+        floor: "15 из 20",
+        priceKzt: 84000000,
+        priceFormatted: "84 000 000 ₸",
+        status: "Сдан",
+        classBadge: "Бизнес-класс",
+        developer: "BI Group",
+        image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+        description: "Уникальный эко-комплекс с собственным озером и парком. Стабильный органический рост стоимости недвижимости +12% в год. Идеально подходит для консервативных инвесторов.",
+        features: ["Собственное озеро", "Эко-квартал", "Рост капитализации", "Престижная локация"]
+      }
+    ];
+
+    // State management
+    const state = {
+      favorites: JSON.parse(localStorage.getItem('atlant_estate_favorites') || '[]'),
+      filters: {
+        type: 'buy',
+        district: 'all',
+        rooms: 'all',
+        price: 'all'
+      }
+    };
+
+    // DOM Elements
+    const elements = {
+      header: document.getElementById('site-header'),
+      propertiesGrid: document.getElementById('properties-grid'),
+      emptyState: document.getElementById('empty-state'),
+      filterTypeButtons: document.querySelectorAll('.filter-type-btn'),
+      filterDistrict: document.getElementById('filter-district'),
+      filterRooms: document.getElementById('filter-rooms'),
+      filterPrice: document.getElementById('filter-price'),
+      filterPriceLabel: document.getElementById('filter-price-label'),
+      filterCountLabel: document.getElementById('filter-count-label'),
+      btnApplyFilters: document.getElementById('btn-apply-filters'),
+      btnResetFilters: document.getElementById('btn-reset-filters'),
+      activeCategoryTag: document.getElementById('active-category-tag'),
+      activeDistrictTag: document.getElementById('active-district-tag'),
+      favoritesBadge: document.getElementById('favorites-badge'),
+      favoritesDrawerCount: document.getElementById('favorites-drawer-count'),
+      btnOpenFavorites: document.getElementById('btn-open-favorites'),
+      drawerFavorites: document.getElementById('drawer-favorites'),
+      drawerFavoritesBackdrop: document.getElementById('drawer-favorites-backdrop'),
+      btnCloseFavoritesDrawer: document.getElementById('btn-close-favorites-drawer'),
+      favoritesList: document.getElementById('favorites-list'),
+      favoritesEmptyMsg: document.getElementById('favorites-empty-msg'),
+      favoritesFooter: document.getElementById('favorites-footer'),
+      // Menu
+      btnToggleMenu: document.getElementById('btn-toggle-menu'),
+      btnCloseMenu: document.getElementById('btn-close-menu'),
+      mobileMenuDrawer: document.getElementById('mobile-menu-drawer'),
+      mobileMenuBackdrop: document.getElementById('mobile-menu-backdrop'),
+      // Modals
+      modalPropertyDetail: document.getElementById('modal-property-detail'),
+      propertyModalContent: document.getElementById('property-modal-content'),
+      btnClosePropertyModal: document.getElementById('btn-close-property-modal'),
+      propertyModalBackdrop: document.getElementById('property-modal-backdrop'),
+      modalQuiz: document.getElementById('modal-quiz'),
+      btnHeroQuiz: document.getElementById('btn-hero-quiz'),
+      btnCloseQuizModal: document.getElementById('btn-close-quiz-modal'),
+      quizModalBackdrop: document.getElementById('quiz-modal-backdrop'),
+      quizForm: document.getElementById('quiz-form'),
+      // Floating Contact
+      btnFloatingContact: document.getElementById('btn-floating-contact'),
+      quickContactMenu: document.getElementById('quick-contact-menu'),
+      // Forms
+      consultationForm: document.getElementById('consultation-form'),
+      toastContainer: document.getElementById('toast-container')
+    };
+
+    /**
+     * INITIALIZATION
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollEffects();
+      initPhoneMasks();
+      initFilterEvents();
+      initFavorites();
+      initModals();
+      initMobileNav();
+      renderProperties();
+      updateDynamicCount();
+    });
+
+    /**
+     * 1. STICKY HEADER & SCROLL BEHAVIOR
+     */
+    function initScrollEffects() {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          elements.header.classList.add('header-scrolled');
+        } else {
+          elements.header.classList.remove('header-scrolled');
+        }
+      }, { passive: true });
+    }
+
+    /**
+     * 2. PHONE INPUT MASK FOR KAZAKHSTAN (+7 (7XX) XXX-XX-XX)
+     */
+    function initPhoneMasks() {
+      const inputs = document.querySelectorAll('.phone-mask-input');
+      inputs.forEach(input => {
+        input.addEventListener('input', (e) => {
+          let value = e.target.value.replace(/\D/g, '');
+          
+          if (value.startsWith('8')) {
+            value = '7' + value.slice(1);
+          } else if (!value.startsWith('7') && value.length > 0) {
+            value = '7' + value;
+          }
+
+          let formatted = '+7';
+          if (value.length > 1) {
+            formatted += ' (' + value.substring(1, 4);
+          }
+          if (value.length >= 5) {
+            formatted += ') ' + value.substring(4, 7);
+          }
+          if (value.length >= 8) {
+            formatted += '-' + value.substring(7, 9);
+          }
+          if (value.length >= 10) {
+            formatted += '-' + value.substring(9, 11);
+          }
+
+          e.target.value = value.length > 0 ? formatted : '';
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && input.value === '+7 (') {
+            input.value = '';
+          }
+        });
+      });
+    }
+
+    /**
+     * 3. FILTERING ENGINE & PRICE ADAPTATION
+     */
+    function initFilterEvents() {
+      // Type Tab buttons (Buy / Rent / Invest)
+      elements.filterTypeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          elements.filterTypeButtons.forEach(b => {
+            b.classList.remove('active', 'bg-white', 'text-brand-black', 'shadow-sm');
+            b.classList.add('text-brand-muted');
+          });
+          btn.classList.add('active', 'bg-white', 'text-brand-black', 'shadow-sm');
+          btn.classList.remove('text-brand-muted');
+
+          state.filters.type = btn.dataset.type;
+          
+          // Adapt price options dynamically if Rent is selected
+          adaptPriceSelectorForType(state.filters.type);
+          
+          // Update tag
+          const typeNames = { buy: 'Купить', rent: 'Аренда', invest: 'Инвестиции' };
+          elements.activeCategoryTag.textContent = typeNames[state.filters.type];
+
+          renderProperties();
+          updateDynamicCount();
+        });
+      });
+
+      // District change
+      elements.filterDistrict.addEventListener('change', (e) => {
+        state.filters.district = e.target.value;
+        elements.activeDistrictTag.textContent = e.target.value === 'all' ? 'Все районы' : `${e.target.value} р-н`;
+        renderProperties();
+        updateDynamicCount();
+      });
+
+      // Rooms change
+      elements.filterRooms.addEventListener('change', (e) => {
+        state.filters.rooms = e.target.value;
+        renderProperties();
+        updateDynamicCount();
+      });
+
+      // Price change
+      elements.filterPrice.addEventListener('change', (e) => {
+        state.filters.price = e.target.value;
+        renderProperties();
+        updateDynamicCount();
+      });
+
+      // Direct button click
+      elements.btnApplyFilters.addEventListener('click', () => {
+        const target = document.getElementById('properties');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+
+      // Reset button
+      elements.btnResetFilters.addEventListener('click', resetFilters);
+    }
+
+    function adaptPriceSelectorForType(type) {
+      if (type === 'rent') {
+        elements.filterPriceLabel.textContent = 'Ставка аренды в месяц';
+        elements.filterPrice.innerHTML = `
+          <option value="all">Любая ставка</option>
+          <option value="under500k">до 500 тыс ₸ / мес</option>
+          <option value="500to800k">500 – 800 тыс ₸ / мес</option>
+          <option value="above800k">от 800 тыс ₸ / мес</option>
+        `;
+      } else {
+        elements.filterPriceLabel.textContent = 'Диапазон бюджета';
+        elements.filterPrice.innerHTML = `
+          <option value="all">Любой бюджет</option>
+          <option value="under60">до 60 млн ₸</option>
+          <option value="60to100">60 – 100 млн ₸</option>
+          <option value="100to160">100 – 160 млн ₸</option>
+          <option value="above160">от 160 млн ₸</option>
+        `;
+      }
+      state.filters.price = 'all';
+    }
+
+    function getFilteredProperties() {
+      return PROPERTIES_DATA.filter(item => {
+        // Type check
+        if (state.filters.type !== 'all' && item.type !== state.filters.type) {
+          return false;
+        }
+
+        // District check
+        if (state.filters.district !== 'all' && item.district !== state.filters.district) {
+          return false;
+        }
+
+        // Rooms check
+        if (state.filters.rooms !== 'all') {
+          if (state.filters.rooms === '4+') {
+            if (item.rooms < 4) return false;
+          } else if (item.rooms !== parseInt(state.filters.rooms, 10)) {
+            return false;
+          }
+        }
+
+        // Price check
+        if (state.filters.price !== 'all') {
+          if (state.filters.type === 'rent') {
+            if (state.filters.price === 'under500k' && item.priceKzt > 500000) return false;
+            if (state.filters.price === '500to800k' && (item.priceKzt < 500000 || item.priceKzt > 800000)) return false;
+            if (state.filters.price === 'above800k' && item.priceKzt < 800000) return false;
+          } else {
+            if (state.filters.price === 'under60' && item.priceKzt > 60000000) return false;
+            if (state.filters.price === '60to100' && (item.priceKzt < 60000000 || item.priceKzt > 100000000)) return false;
+            if (state.filters.price === '100to160' && (item.priceKzt < 100000000 || item.priceKzt > 160000000)) return false;
+            if (state.filters.price === 'above160' && item.priceKzt < 160000000) return false;
+          }
+        }
+
+        return true;
+      });
+    }
+
+    function updateDynamicCount() {
+      const count = getFilteredProperties().length;
+      elements.filterCountLabel.textContent = `Показать ${count} ${getNoun(count, 'объект', 'объекта', 'объектов')}`;
+    }
+
+    function resetFilters() {
+      state.filters.type = 'buy';
+      state.filters.district = 'all';
+      state.filters.rooms = 'all';
+      state.filters.price = 'all';
+
+      elements.filterTypeButtons.forEach(b => {
+        b.classList.remove('active', 'bg-white', 'text-brand-black', 'shadow-sm');
+        b.classList.add('text-brand-muted');
+        if (b.dataset.type === 'buy') {
+          b.classList.add('active', 'bg-white', 'text-brand-black', 'shadow-sm');
+          b.classList.remove('text-brand-muted');
+        }
+      });
+
+      adaptPriceSelectorForType('buy');
+      elements.filterDistrict.value = 'all';
+      elements.filterRooms.value = 'all';
+      elements.filterPrice.value = 'all';
+
+      elements.activeCategoryTag.textContent = 'Купить';
+      elements.activeDistrictTag.textContent = 'Все районы';
+
+      renderProperties();
+      updateDynamicCount();
+      showToast('Фильтры успешно сброшены');
+    }
+
+    /**
+     * 4. RENDER PROPERTIES CARDS
+     */
+    function renderProperties() {
+      const filtered = getFilteredProperties();
+      elements.propertiesGrid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        elements.propertiesGrid.classList.add('hidden');
+        elements.emptyState.classList.remove('hidden');
+        return;
+      }
+
+      elements.propertiesGrid.classList.remove('hidden');
+      elements.emptyState.classList.add('hidden');
+
+      filtered.forEach(prop => {
+        const isFav = state.favorites.includes(prop.id);
+        const card = document.createElement('article');
+        card.className = 'property-card bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-borderLight transition-all duration-300 flex flex-col group';
+        
+        card.innerHTML = `
+          <!-- Image Container with Zoom and Badges -->
+          <div class="relative aspect-[16/10] overflow-hidden bg-brand-surface">
+            <img 
+              src="${prop.image}" 
+              alt="${prop.title} в Астане" 
+              class="property-card-img w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-card/90 via-transparent to-black/30"></div>
+
+            <!-- Badges Top Left -->
+            <div class="absolute top-3.5 left-3.5 flex flex-wrap gap-1.5 z-10">
+              <span class="px-2.5 py-1 rounded-md bg-brand-black/75 backdrop-blur-md text-[11px] font-semibold text-white border border-white/10">
+                ${prop.classBadge}
+              </span>
+              <span class="px-2 py-1 rounded-md bg-emerald-950/80 backdrop-blur-md text-[11px] font-semibold text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                ${prop.status}
+              </span>
+            </div>
+
+            <!-- Favorite Button Top Right -->
+            <button 
+              onclick="toggleFavorite(${prop.id}, event)" 
+              class="absolute top-3.5 right-3.5 z-10 p-2.5 rounded-xl bg-brand-black/70 hover:bg-brand-black backdrop-blur-md border border-white/10 text-white transition-transform active:scale-90 group/fav"
+              aria-label="${isFav ? 'Удалить из избранного' : 'Добавить в избранное'}"
+            >
+              <svg class="w-4 h-4 transition-colors ${isFav ? 'text-rose-500 fill-rose-500' : 'text-slate-300 group-hover/fav:text-rose-400'}" fill="${isFav ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+            </button>
+
+            <!-- District Badge Bottom Left -->
+            <div class="absolute bottom-3 left-3.5 text-xs text-slate-300 flex items-center gap-1.5 z-10 font-medium">
+              <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>${prop.district} район</span>
+            </div>
+          </div>
+
+          <!-- Body Content -->
+          <div class="p-5 sm:p-6 flex flex-col justify-between flex-grow">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-1.5">
+                <h3 class="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-brand-gold transition-colors">
+                  ${prop.title}
+                </h3>
+              </div>
+              <p class="text-xs text-brand-muted line-clamp-1 mb-4">
+                ${prop.address}
+              </p>
+
+              <!-- Metrics -->
+              <div class="grid grid-cols-3 gap-2 py-3 border-y border-white/5 text-center text-xs mb-4 bg-white/[0.01] rounded-lg">
+                <div>
+                  <span class="block text-brand-muted text-[11px]">Комнаты</span>
+                  <span class="font-bold text-white">${prop.rooms} комн.</span>
+                </div>
+                <div class="border-x border-white/5">
+                  <span class="block text-brand-muted text-[11px]">Площадь</span>
+                  <span class="font-bold text-white">${prop.area} м²</span>
+                </div>
+                <div>
+                  <span class="block text-brand-muted text-[11px]">Этаж</span>
+                  <span class="font-bold text-white">${prop.floor}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price and Action CTA -->
+            <div class="pt-2 flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[11px] text-brand-muted block uppercase tracking-wider font-medium">Стоимость</span>
+                <span class="text-base sm:text-lg font-extrabold text-white tracking-tight">${prop.priceFormatted}</span>
+              </div>
+              
+              <button 
+                onclick="openPropertyModal(${prop.id})" 
+                class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white text-white hover:text-brand-black border border-white/10 text-xs font-semibold transition-all flex items-center gap-1.5 group/btn"
+              >
+                <span>Подробнее</span>
+                <span class="text-xs transition-transform group-hover/btn:translate-x-0.5">↗</span>
+              </button>
+            </div>
+
+          </div>
+        `;
+
+        elements.propertiesGrid.appendChild(card);
+      });
+    }
+
+    /**
+     * 5. FAVORITES SYSTEM (LocalStorage + Badges + Drawer)
+     */
+    function initFavorites() {
+      updateFavoritesUI();
+
+      elements.btnOpenFavorites.addEventListener('click', openFavoritesDrawer);
+      elements.btnCloseFavoritesDrawer.addEventListener('click', closeFavoritesDrawer);
+      elements.drawerFavoritesBackdrop.addEventListener('click', closeFavoritesDrawer);
+    }
+
+    function toggleFavorite(id, event) {
+      if (event) event.stopPropagation();
+
+      const index = state.favorites.indexOf(id);
+      const prop = PROPERTIES_DATA.find(p => p.id === id);
+
+      if (index > -1) {
+        state.favorites.splice(index, 1);
+        showToast(`«${prop ? prop.title : 'Объект'}» удален из избранного`);
+      } else {
+        state.favorites.push(id);
+        showToast(`«${prop ? prop.title : 'Объект'}» добавлен в избранное`);
+      }
+
+      localStorage.setItem('atlant_estate_favorites', JSON.stringify(state.favorites));
+      updateFavoritesUI();
+      renderProperties(); // Refresh heart icon state in current grid
+    }
+
+    function updateFavoritesUI() {
+      const count = state.favorites.length;
+      elements.favoritesBadge.textContent = count;
+      elements.favoritesDrawerCount.textContent = count;
+
+      if (count > 0) {
+        elements.favoritesEmptyMsg.classList.add('hidden');
+        elements.favoritesFooter.classList.remove('hidden');
+      } else {
+        elements.favoritesEmptyMsg.classList.remove('hidden');
+        elements.favoritesFooter.classList.add('hidden');
+      }
+
+      // Render drawer items
+      elements.favoritesList.innerHTML = '';
+      const favProperties = PROPERTIES_DATA.filter(p => state.favorites.includes(p.id));
+
+      favProperties.forEach(prop => {
+        const item = document.createElement('div');
+        item.className = 'p-3.5 rounded-xl bg-brand-card border border-brand-border flex items-center gap-3.5 relative group';
+        item.innerHTML = `
+          <img src="${prop.image}" alt="${prop.title}" class="w-16 h-16 rounded-lg object-cover flex-shrink-0">
+          <div class="flex-grow min-w-0 pr-6">
+            <h4 class="text-xs sm:text-sm font-bold text-white truncate">${prop.title}</h4>
+            <p class="text-[11px] text-brand-muted truncate">${prop.address}</p>
+            <div class="text-xs font-bold text-brand-gold mt-1">${prop.priceFormatted}</div>
+          </div>
+          <button onclick="toggleFavorite(${prop.id})" class="absolute top-2.5 right-2.5 p-1 rounded-md text-brand-muted hover:text-rose-400 hover:bg-white/5 transition-colors" title="Удалить">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        `;
+        elements.favoritesList.appendChild(item);
+      });
+    }
+
+    function openFavoritesDrawer() {
+      elements.drawerFavorites.classList.remove('pointer-events-none');
+      elements.drawerFavorites.classList.remove('translate-x-full');
+      elements.drawerFavoritesBackdrop.classList.remove('opacity-0');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFavoritesDrawer() {
+      elements.drawerFavorites.classList.add('translate-x-full');
+      elements.drawerFavoritesBackdrop.classList.add('opacity-0');
+      setTimeout(() => {
+        elements.drawerFavorites.classList.add('pointer-events-none');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    function clearAllFavorites() {
+      state.favorites = [];
+      localStorage.setItem('atlant_estate_favorites', JSON.stringify([]));
+      updateFavoritesUI();
+      renderProperties();
+      showToast('Список избранного очищен');
+    }
+
+    function requestAllFavoritesConsultation() {
+      closeFavoritesDrawer();
+      openQuizModal(`Консультация по ${state.favorites.length} сохраненным объектам`);
+    }
+
+    /**
+     * 6. PROPERTY DETAIL MODAL
+     */
+    function openPropertyModal(id) {
+      const prop = PROPERTIES_DATA.find(p => p.id === id);
+      if (!prop) return;
+
+      const isFav = state.favorites.includes(prop.id);
+
+      elements.propertyModalContent.innerHTML = `
+        <div class="relative aspect-[16/9] w-full bg-brand-card overflow-hidden">
+          <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-black/40"></div>
+          <div class="absolute bottom-4 left-6 right-6">
+            <div class="flex flex-wrap gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded bg-brand-gold text-brand-black text-xs font-bold">${prop.classBadge}</span>
+              <span class="px-2.5 py-0.5 rounded bg-brand-black/80 text-white text-xs font-medium border border-white/10">${prop.district} район</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">${prop.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-300">${prop.address} • Застройщик: ${prop.developer}</p>
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/5">
+            <div>
+              <span class="text-xs text-brand-muted block uppercase tracking-wider">Цена предложения</span>
+              <span class="text-2xl sm:text-3xl font-extrabold text-white">${prop.priceFormatted}</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="toggleFavorite(${prop.id}); openPropertyModal(${prop.id});" class="px-4 py-2.5 rounded-xl border border-white/10 hover:border-white/30 text-xs font-semibold text-white transition-all flex items-center gap-2">
+                <svg class="w-4 h-4 ${isFav ? 'text-rose-500 fill-rose-500' : 'text-slate-400'}" fill="${isFav ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+                <span>${isFav ? 'В избранном' : 'Сохранить'}</span>
+              </button>
+              <a href="https://wa.me/77027537510?text=${encodeURIComponent('Здравствуйте! Интересует объект ' + prop.title + ' (' + prop.priceFormatted + '). Отправьте, пожалуйста, полную презентацию и планировку.')}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-white text-brand-black hover:bg-brand-gold font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <span>Написать в WhatsApp</span>
+                <span class="font-bold">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Specs grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="p-3.5 rounded-xl bg-brand-card border border-brand-border">
+              <span class="text-brand-muted block text-[11px]">Комнаты</span>
+              <span class="font-bold text-white text-sm">${prop.rooms}-комнатная</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-brand-card border border-brand-border">
+              <span class="text-brand-muted block text-[11px]">Общая площадь</span>
+              <span class="font-bold text-white text-sm">${prop.area} м²</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-brand-card border border-brand-border">
+              <span class="text-brand-muted block text-[11px]">Этажность</span>
+              <span class="font-bold text-white text-sm">${prop.floor}</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-brand-card border border-brand-border">
+              <span class="text-brand-muted block text-[11px]">Готовность</span>
+              <span class="font-bold text-emerald-400 text-sm">${prop.status}</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-muted mb-2">Описание резиденции</h4>
+            <p class="text-sm text-slate-300 leading-relaxed">${prop.description}</p>
+          </div>
+
+          <!-- Features tags -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-muted mb-2">Ключевые преимущества</h4>
+            <div class="flex flex-wrap gap-2">
+              ${prop.features.map(f => `<span class="px-3 py-1 rounded-lg bg-white/5 border border-white/5 text-xs text-white font-medium">✓ ${f}</span>`).join('')}
+            </div>
+          </div>
+
+          <!-- Broker Action Form within modal -->
+          <div class="p-4 rounded-xl bg-brand-card border border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-bold text-white block">Хотите посмотреть квартиру лично?</span>
+              <span class="text-[11px] text-brand-muted">Организуем просмотр на комфортном авто агентства в удобное время.</span>
+            </div>
+            <button onclick="closePropertyModal(); openQuizModal('Запись на просмотр: ' + '${prop.title}')" class="whitespace-nowrap px-5 py-2.5 rounded-xl bg-white text-brand-black hover:bg-brand-gold text-xs font-semibold transition-colors">
+              Записаться на просмотр ↗
+            </button>
+          </div>
+        </div>
+      `;
+
+      elements.modalPropertyDetail.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePropertyModal() {
+      elements.modalPropertyDetail.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    /**
+     * 7. QUIZ / SELECTION MODAL
+     */
+    function openQuizModal(titleText = 'Подбор недвижимости по вашим критериям') {
+      const titleEl = document.getElementById('quiz-title');
+      if (titleEl && titleText) {
+        titleEl.textContent = titleText;
+      }
+      elements.modalQuiz.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuizModal() {
+      elements.modalQuiz.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function initModals() {
+      // Property modal handlers
+      elements.btnClosePropertyModal.addEventListener('click', closePropertyModal);
+      elements.propertyModalBackdrop.addEventListener('click', closePropertyModal);
+
+      // Quiz modal triggers
+      elements.btnHeroQuiz.addEventListener('click', () => openQuizModal('Подбор недвижимости в Астане'));
+      elements.btnCloseQuizModal.addEventListener('click', closeQuizModal);
+      elements.quizModalBackdrop.addEventListener('click', closeQuizModal);
+
+      // Quiz Form submission
+      elements.quizForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(elements.quizForm);
+        const name = formData.get('quiz_name');
+        const phone = formData.get('quiz_phone');
+        const goal = formData.get('quiz_goal');
+        const district = formData.get('quiz_district');
+
+        closeQuizModal();
+        elements.quizForm.reset();
+
+        showToast(`Спасибо, ${name}! Заявка принята. Брокер отправит подборку по району «${district}» на номер ${phone} в течение 25 минут.`);
+      });
+
+      // Consultation Form submission
+      elements.consultationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('form-name').value;
+        const phone = document.getElementById('form-phone').value;
+        const budget = document.getElementById('form-budget').value;
+
+        elements.consultationForm.reset();
+        showToast(`Спасибо, ${name}! Заявка на бюджет «${budget}» отправлена. Наш старший эксперт свяжется с вами по номеру ${phone}.`);
+      });
+
+      // Quick contact popup
+      elements.btnFloatingContact.addEventListener('click', () => {
+        elements.quickContactMenu.classList.toggle('hidden');
+      });
+
+      // Close floating menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!elements.btnFloatingContact.contains(e.target) && !elements.quickContactMenu.contains(e.target)) {
+          elements.quickContactMenu.classList.add('hidden');
+        }
+      });
+    }
+
+    /**
+     * 8. MOBILE NAVIGATION DRAWER
+     */
+    function initMobileNav() {
+      elements.btnToggleMenu.addEventListener('click', openMobileMenu);
+      elements.btnCloseMenu.addEventListener('click', closeMobileMenu);
+      elements.mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+
+      document.querySelectorAll('.mobile-nav-item').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+
+    function openMobileMenu() {
+      elements.mobileMenuDrawer.classList.remove('pointer-events-none');
+      elements.mobileMenuDrawer.classList.remove('translate-x-full');
+      elements.mobileMenuBackdrop.classList.remove('opacity-0');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      elements.mobileMenuDrawer.classList.add('translate-x-full');
+      elements.mobileMenuBackdrop.classList.add('opacity-0');
+      setTimeout(() => {
+        elements.mobileMenuDrawer.classList.add('pointer-events-none');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    /**
+     * 9. TOAST NOTIFICATION COMPONENT
+     */
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'toast-anim pointer-events-auto max-w-sm p-4 rounded-xl bg-brand-surface border border-brand-gold/40 text-white text-xs sm:text-sm font-medium shadow-2xl flex items-start gap-3';
+      toast.innerHTML = `
+        <span class="w-5 h-5 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
+        <div class="flex-grow">${message}</div>
+      `;
+
+      elements.toastContainer.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        setTimeout(() => toast.remove(), 400);
+      }, 4200);
+    }
+
+    /**
+     * Helper: Russian noun declension
+     */
+    function getNoun(number, one, two, five) {
+      let n = Math.abs(number);
+      n %= 100;
+      if (n >= 5 && n <= 20) return five;
+      n %= 10;
+      if (n === 1) return one;
+      if (n >= 2 && n <= 4) return two;
+      return five;
+    }
+  </script>
+
 </body>
 </html>
