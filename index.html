@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MSH — ведущее агентство частной и инвестиционной недвижимости в Шымкенте. Премиальные квартиры, дома и жилые комплексы от проверенных застройщиков.">
+  <meta name="keywords" content="недвижимость Шымкент, купить квартиру Шымкент, элитная недвижимость Шымкент, агентство недвижимости MSH, жилые комплексы Шымкент">
+  <meta property="og:title" content="MSH — Недвижимость Шымкента">
+  <meta property="og:description" content="Недвижимость Шымкента, которую хочется назвать своим домом. Подбор квартир, домов и инвестиционных резиденций.">
+  <title>MSH — Премиальная недвижимость в Шымкенте</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Header / Navigation
+       ======================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand" aria-label="MSH Недвижимость Шымкента Главная">
+        <div class="brand-logo-text">MSH</div>
+        <span class="brand-tagline">Агентство недвижимости</span>
+      </a>
+
+      <!-- Header Action Elements -->
+      <div class="header-actions">
+        
+        <!-- Location Indicator -->
+        <div class="location-indicator">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>г. Шымкент</span>
+        </div>
+
+        <!-- Favorites Button -->
+        <a href="#properties" class="btn-favorites" aria-label="Избранные объекты">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+          <span class="favorites-count">0</span>
+        </a>
+
+        <!-- Auth Actions -->
+        <button class="btn-signin" onclick="openConsultationModal('Вход в закрытый каталог MSH')">Войти</button>
+        <a href="#properties" class="btn-cta-nav">
+          Смотреть объекты
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"/>
+            <polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </a>
+
+        <!-- Minimalist Menu Toggle Button -->
+        <button class="btn-menu-toggle" id="btn-menu-toggle" aria-label="Открыть навигацию" aria-expanded="false">
+          <span class="menu-icon-lines">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="menu-text-label">Меню</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" aria-label="Мобильное меню">
+    <div class="mobile-nav-links">
+      <a href="#about" class="mobile-nav-link">О компании</a>
+      <a href="#properties" class="mobile-nav-link">Объекты в продаже</a>
+      <a href="#sold" class="mobile-nav-link">Реализованные объекты</a>
+      <a href="#brokers" class="mobile-nav-link">Команда брокеров</a>
+      <a href="#reviews" class="mobile-nav-link">Отзывы клиентов</a>
+      <a href="#contact" class="mobile-nav-link">Контакты и офис</a>
+    </div>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+      <button onclick="openConsultationModal('Личный кабинет клиента')" class="btn-outline-hero" style="text-align: center; justify-content: center;">Личный кабинет</button>
+      <a href="#properties" class="btn-primary-hero" style="text-align: center; justify-content: center;">Смотреть каталог</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    
+    <!-- ======================================================================
+         Hero Section
+         ====================================================================== -->
+    <section class="hero-section" id="hero" aria-label="Главный экран">
+      
+      <!-- Background Image with Panoramic View of Shymkent -->
+      <div class="hero-bg">
+        <img src="assets/images/hero-shymkent-ferris.jpg" alt="Панорама и колесо обозрения Шымкента" loading="eager">
+      </div>
+
+      <!-- Contrast Gradient Overlay -->
+      <div class="hero-overlay"></div>
+
+      <div class="container" style="position: relative; z-index: 5;">
+        <div class="hero-content">
+
+          <h1 class="hero-title">
+            Недвижимость Шымкента,<br>
+            <em>которую хочется назвать своим домом.</em>
+          </h1>
+
+          <div class="hero-buttons">
+            <a href="#properties" class="btn-primary-hero">
+              Смотреть объекты
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
+              </svg>
+            </a>
+            <button onclick="openConsultationModal('Индивидуальный подбор недвижимости')" class="btn-outline-hero">
+              Подобрать недвижимость
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Trust & Value Propositions Strip
+         ====================================================================== -->
+    <section class="trust-strip" aria-label="Преимущества агентства">
+      <div class="container">
+        <div class="trust-strip-inner">
+          <div class="trust-point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Прозрачные сделки</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Профессиональная команда брокеров</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Индивидуальный подбор активов</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-point">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Глубокое знание локаций Шымкента</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Alpha Properties Editorial Action Grid (Group 2 SVG)
+         ====================================================================== -->
+    <section class="section-editorial" id="about" aria-label="О компании и экспертиза MSH">
+      <div class="container">
+        <div class="editorial-grid">
+          
+          <div class="editorial-left">
+            <h2 class="editorial-lead-title">
+              Инвестиционные активы и приватные резиденции в Шымкенте с подтвержденной ликвидностью.
+            </h2>
+            <p class="editorial-body-text">
+              Компания MSH формирует культуру прозрачных сделок и премиального сервиса на юге Казахстана. Мы отбираем объекты с продуманной архитектурой, удобными планировками и высоким потенциалом капитализации — от статусных пентхаусов до приватных загородных резиденций. Сопровождаем каждый этап под ключ, обеспечивая независимую оценку и полную защиту капитала клиента.
+            </p>
+            <div class="editorial-quote-author">
+              «В премиальном сегменте доверие строится на точности цифр, юридической чистоте и конфиденциальности.» — Данияр Агудо, основатель MSH
+            </div>
+
+            <!-- Key Metrics (MSH в цифрах) -->
+            <div class="editorial-stats-row">
+              <div class="stat-item">
+                <div class="stat-value">15+ лет</div>
+                <div class="stat-label">Опыт работы на рынке недвижимости Шымкента</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Успешно закрытых сделок и довольных клиентов</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Юридическая проверка и аудит каждого объекта</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- High-Contrast Dark Action Tiles (Alpha Properties Style) -->
+          <div class="editorial-actions-col">
+            
+            <a href="#properties" class="action-tile">
+              <div>
+                <div class="action-tile-title">Выбрать пространство для жизни</div>
+                <div class="action-tile-sub">Резиденции в мкр. Мирас, Туран, Нурсат и на пр. Тауке Хана</div>
+              </div>
+              <div class="action-tile-arrow">→</div>
+            </a>
+
+            <div class="action-tile" onclick="openConsultationModal('Инвестиции в новостройки Шымкента')" style="cursor: pointer;">
+              <div>
+                <div class="action-tile-title">Инвестиции в новостройки</div>
+                <div class="action-tile-sub">Закрытые старты продаж с прогнозируемой доходностью от 14%</div>
+              </div>
+              <div class="action-tile-arrow">→</div>
+            </div>
+
+            <div class="action-tile" onclick="openConsultationModal('Персональная консультация с ведущим брокером')" style="cursor: pointer;">
+              <div>
+                <div class="action-tile-title">Персональный брокерский аудит</div>
+                <div class="action-tile-sub">100% юридическая проверка прав собственности и обременений</div>
+              </div>
+              <div class="action-tile-arrow">→</div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Properties Catalog
+         ====================================================================== -->
+    <section class="section-properties" id="properties" aria-label="Каталог объектов">
+      <div class="container">
+        
+        <div class="section-header-flex">
+          <div>
+            <h2 class="section-title-large" style="margin-bottom: 0;">
+              Каталог резиденций и квартир в Шымкенте
+            </h2>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div class="carousel-nav-group">
+              <button class="btn-nav-round" id="prop-prev" aria-label="Предыдущий объект">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </button>
+              <button class="btn-nav-round" id="prop-next" aria-label="Следующий объект">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+            <button onclick="openConsultationModal('Запрос полного каталога объектов MSH')" class="btn-view-all">
+              Смотреть все объекты →
+            </button>
+          </div>
+        </div>
+
+        <!-- Properties Grid -->
+        <div class="properties-grid">
+          
+          <!-- Property 1 -->
+          <article class="property-card">
+            <div class="property-img-wrapper">
+              <img src="assets/images/property-miras.jpg" alt="Частная резиденция в мкр. Мирас, Шымкент" loading="lazy">
+              <button class="property-btn-fav" aria-label="Добавить в избранное">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="property-info">
+              <div class="property-price">185 000 000 ₸</div>
+              <div class="property-meta">4 спальни · 3 санузла · 320 м²</div>
+              <div class="property-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>мкр. Мирас, Шымкент</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Property 2 -->
+          <article class="property-card">
+            <div class="property-img-wrapper">
+              <img src="assets/images/property-tauke-hana.jpg" alt="Жилой комплекс бизнес-класса на пр. Тауке Хана, Шымкент" loading="lazy">
+              <button class="property-btn-fav" aria-label="Добавить в избранное">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="property-info">
+              <div class="property-price">52 000 000 ₸</div>
+              <div class="property-meta">2 комнаты · 1 санузел · 68 м²</div>
+              <div class="property-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>пр. Тауке Хана, Шымкент</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Property 3 -->
+          <article class="property-card">
+            <div class="property-img-wrapper">
+              <img src="assets/images/property-nursat.jpg" alt="Премиальный таунхаус в мкр. Нурсат, Шымкент" loading="lazy">
+              <button class="property-btn-fav" aria-label="Добавить в избранное">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="property-info">
+              <div class="property-price">98 000 000 ₸</div>
+              <div class="property-meta">3 спальни · 2 санузла · 180 м²</div>
+              <div class="property-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>мкр. Нурсат, Шымкент</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Property 4 -->
+          <article class="property-card">
+            <div class="property-img-wrapper">
+              <img src="assets/images/property-asar.jpg" alt="Современный коттедж в мкр. Асар, Шымкент" loading="lazy">
+              <button class="property-btn-fav" aria-label="Добавить в избранное">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="property-info">
+              <div class="property-price">74 000 000 ₸</div>
+              <div class="property-meta">3 спальни · 2 санузла · 140 м²</div>
+              <div class="property-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>мкр. Асар, Шымкент</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         City Homes Featured Areas / Districts Showcase (Group 3 SVG)
+         ====================================================================== -->
+    <section class="section-districts" id="districts" aria-label="Районы Шымкента">
+      <div class="container">
+        
+        <div class="districts-header-flex">
+          <div>
+            <h2 class="section-title-large" style="margin-bottom: 6px;">Районы Шымкента</h2>
+            <p style="font-size: 15px; color: var(--text-muted); margin: 0;">
+              Локации с максимальной инвестиционной ликвидностью и развитой инфраструктурой
+            </p>
+          </div>
+          <div class="carousel-nav-group">
+            <button class="btn-nav-round" id="district-prev" aria-label="Предыдущий район">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button class="btn-nav-round" id="district-next" aria-label="Следующий район">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Districts Strip Horizontal Carousel -->
+        <div class="districts-strip-wrapper">
+          <div class="districts-strip" id="districts-strip">
+            
+            <!-- District 1: Нурсат -->
+            <div class="district-card" onclick="filterByDistrict('Нурсат')">
+              <img src="assets/images/property-nursat.jpg" alt="мкр. Нурсат, Шымкент" loading="lazy">
+              <div class="district-card-overlay">
+                <span class="district-badge">14 объектов</span>
+                <div class="district-name">мкр. Нурсат</div>
+                <div class="district-desc">Административный и деловой центр города, новые премиальные жилые комплексы</div>
+              </div>
+            </div>
+
+            <!-- District 2: Мирас -->
+            <div class="district-card" onclick="filterByDistrict('Мирас')">
+              <img src="assets/images/property-miras.jpg" alt="мкр. Мирас, Шымкент" loading="lazy">
+              <div class="district-card-overlay">
+                <span class="district-badge">8 резиденций</span>
+                <div class="district-name">мкр. Мирас</div>
+                <div class="district-desc">Престижный коттеджный массив, приватные особняки, чистый воздух предгорий</div>
+              </div>
+            </div>
+
+            <!-- District 3: пр. Тауке Хана & Центр -->
+            <div class="district-card" onclick="filterByDistrict('Тауке Хана')">
+              <img src="assets/images/property-tauke-hana.jpg" alt="пр. Тауке Хана, Шымкент" loading="lazy">
+              <div class="district-card-overlay">
+                <span class="district-badge">11 объектов</span>
+                <div class="district-name">пр. Тауке Хана / Центр</div>
+                <div class="district-desc">Главный проспект города, культурные центры, театры, парки и статусная среда</div>
+              </div>
+            </div>
+
+            <!-- District 4: мкр. Туран -->
+            <div class="district-card" onclick="filterByDistrict('Туран')">
+              <img src="assets/images/hero-shymkent.jpg" alt="мкр. Туран, Шымкент" loading="lazy">
+              <div class="district-card-overlay">
+                <span class="district-badge">19 объектов</span>
+                <div class="district-name">мкр. Туран</div>
+                <div class="district-desc">Быстрорастущий современный район у нового парка, высокая капитализация</div>
+              </div>
+            </div>
+
+            <!-- District 5: мкр. Асар -->
+            <div class="district-card" onclick="filterByDistrict('Асар')">
+              <img src="assets/images/property-asar.jpg" alt="мкр. Асар, Шымкент" loading="lazy">
+              <div class="district-card-overlay">
+                <span class="district-badge">7 коттеджей</span>
+                <div class="district-name">мкр. Асар</div>
+                <div class="district-desc">Тихие загородные кварталы, просторные участки для семейного проживания</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Coldwell Banker Instant Home Valuation Section (Group 1 + Group 3 SVG)
+         ====================================================================== -->
+    <section class="section-valuation" id="valuation" aria-label="Онлайн-оценка недвижимости">
+      <div class="container">
+        
+        <div class="valuation-grid">
+          
+          <!-- Visual Column with Floating Pill -->
+          <div class="valuation-photo-box">
+            <img src="assets/images/estimate-bedroom.jpg" alt="Оценка стоимости жилья в Шымкенте" loading="lazy">
+            <div class="valuation-floating-pill">
+              <div class="valuation-pill-label">Ориентировочная оценка</div>
+              <div class="valuation-pill-value" id="pill-live-price">58 400 000 ₸</div>
+              <div style="font-size: 11px; color: #16a34a; font-weight: 600; margin-top: 4px;">
+                ✓ Актуально на октябрь 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Calculator Column -->
+          <div>
+            
+            <div class="valuation-steps-bar">
+              <div class="valuation-step-item active">
+                <span class="valuation-step-num">1</span>
+                <span>Локация</span>
+              </div>
+              <div class="valuation-step-item active">
+                <span class="valuation-step-num">2</span>
+                <span>Параметры</span>
+              </div>
+              <div class="valuation-step-item active">
+                <span class="valuation-step-num">3</span>
+                <span>Расчет MSH</span>
+              </div>
+            </div>
+
+            <h2 class="section-title-large" style="margin-bottom: 12px;">
+              Узнайте реальную рыночную стоимость вашей недвижимости
+            </h2>
+            <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6;">
+              Аналитический алгоритм MSH опирается на статистику 500+ реальных закрытых сделок в Шымкенте. Получите мгновенную оценку или закажите расширенный аудит брокера.
+            </p>
+
+            <form class="valuation-calc-form" id="valuation-calculator" onsubmit="event.preventDefault(); requestDetailedValuation();">
+              
+              <div class="calc-inputs-row">
+                <div>
+                  <label class="form-label" for="calc-district">Район Шымкента</label>
+                  <select id="calc-district" class="calc-select" onchange="calculateValuation()">
+                    <option value="miras" data-rate="580000">мкр. Мирас (Премиум)</option>
+                    <option value="nursat" data-rate="480000" selected>мкр. Нурсат (Бизнес/Центр)</option>
+                    <option value="tauke" data-rate="520000">пр. Тауке Хана (Центр)</option>
+                    <option value="turan" data-rate="390000">мкр. Туран (Новостройки)</option>
+                    <option value="asar" data-rate="360000">мкр. Асар / Самал</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label" for="calc-type">Тип объекта</label>
+                  <select id="calc-type" class="calc-select" onchange="calculateValuation()">
+                    <option value="flat">Квартира в ЖК</option>
+                    <option value="house">Частная резиденция / дом</option>
+                    <option value="townhouse">Таунхаус</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <label class="form-label" for="calc-area" style="margin: 0;">Общая площадь объекта (м²):</label>
+                  <span id="calc-area-value" style="font-size: 15px; font-weight: 700; color: var(--navy-900);">95 м²</span>
+                </div>
+                <input type="range" id="calc-area" min="40" max="450" value="95" step="5" class="form-range" style="width: 100%; cursor: pointer;" oninput="updateAreaAndValuation(this.value)">
+              </div>
+
+              <!-- Calculated Price Display -->
+              <div class="calc-result-box">
+                <div>
+                  <div class="calc-result-label">Рыночный диапазон стоимости:</div>
+                  <div class="calc-result-price" id="calc-output-price">45 600 000 ₸</div>
+                </div>
+                <button type="submit" class="btn-primary-hero" style="font-size: 13px; padding: 12px 20px;">
+                  Получить отчет →
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Sold Listings
+         ====================================================================== -->
+    <section class="section-sold" id="sold" aria-label="Проданные объекты">
+      <div class="container">
+        
+        <div class="sold-header-flex">
+          <div>
+            <h2 class="sold-title">Проданные объекты в Шымкенте</h2>
+          </div>
+          <button onclick="openConsultationModal('Запрос аналитики проданных объектов в Шымкенте')" class="btn-outline-hero" style="font-size: 13px; padding: 10px 20px;">
+            Смотреть все проданные объекты →
+          </button>
+        </div>
+
+        <div class="sold-grid">
+          
+          <!-- Sold 1 -->
+          <article class="sold-card">
+            <div class="sold-img-wrapper">
+              <img src="assets/images/sold-1.jpg" alt="Проданный жилой комплекс в Шымкенте" loading="lazy">
+              <span class="sold-badge">Продано</span>
+            </div>
+            <div class="sold-info">
+              <div class="sold-price">145 000 000 ₸</div>
+              <div class="sold-meta">4 спальни · 3 санузла · 280 м² · мкр. Туран, Шымкент</div>
+            </div>
+          </article>
+
+          <!-- Sold 2 -->
+          <article class="sold-card">
+            <div class="sold-img-wrapper">
+              <img src="assets/images/sold-2.jpg" alt="Проданный жилой дом в Самал-2" loading="lazy">
+              <span class="sold-badge">Продано</span>
+            </div>
+            <div class="sold-info">
+              <div class="sold-price">85 000 000 ₸</div>
+              <div class="sold-meta">3 спальни · 2 санузла · 165 м² · мкр. Самал-2, Шымкент</div>
+            </div>
+          </article>
+
+          <!-- Sold 3 -->
+          <article class="sold-card">
+            <div class="sold-img-wrapper">
+              <img src="assets/images/sold-3.jpg" alt="Проданная квартира в Шымкенте" loading="lazy">
+              <span class="sold-badge">Продано</span>
+            </div>
+            <div class="sold-info">
+              <div class="sold-price">62 000 000 ₸</div>
+              <div class="sold-meta">2 спальни · 1 санузел · 95 м² · мкр. Северо-Восток, Шымкент</div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Brokers & Team
+         ====================================================================== -->
+    <section class="section-brokers" id="brokers" aria-label="Команда брокеров MSH">
+      <div class="container">
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px;">
+          <div>
+            <h2 class="section-title-large" style="margin-bottom: 0;">Персональные брокеры Шымкента</h2>
+          </div>
+          <div class="carousel-nav-group">
+            <button class="btn-nav-round" id="broker-prev" aria-label="Предыдущий брокер">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button class="btn-nav-round" id="broker-next" aria-label="Следующий брокер">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Horizontal Broker Strip -->
+        <div class="broker-slider-wrapper">
+          <div class="broker-strip">
+            
+            <div class="broker-avatar-card active" data-broker-id="1">
+              <img src="assets/images/broker-1.jpg" alt="Данияр Агудо">
+              <div class="broker-avatar-overlay">Данияр Агудо</div>
+            </div>
+
+            <div class="broker-avatar-card" data-broker-id="2">
+              <img src="assets/images/broker-2.jpg" alt="Айгерим Касымова">
+              <div class="broker-avatar-overlay">Айгерим Касымова</div>
+            </div>
+
+            <div class="broker-avatar-card" data-broker-id="3">
+              <img src="assets/images/broker-3.jpg" alt="Бауыржан Садыков">
+              <div class="broker-avatar-overlay">Бауыржан Садыков</div>
+            </div>
+
+            <div class="broker-avatar-card" data-broker-id="4">
+              <img src="assets/images/broker-4.jpg" alt="Ерлан Омаров">
+              <div class="broker-avatar-overlay">Ерлан Омаров</div>
+            </div>
+
+            <div class="broker-avatar-card" data-broker-id="5">
+              <img src="assets/images/broker-5.jpg" alt="Мадина Нургалиева">
+              <div class="broker-avatar-overlay">Мадина Нургалиева</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Active Broker Detailed Profile Box -->
+        <div class="broker-profile-box" id="active-broker-profile">
+          
+          <div class="broker-profile-img">
+            <img id="broker-detail-img" src="assets/images/broker-main.jpg" alt="Портрет брокера Данияр Агудо">
+          </div>
+
+          <div class="broker-details-content">
+            <h3 class="broker-name-heading" id="broker-detail-name">Данияр Агудо</h3>
+            <div class="broker-role-subtitle" id="broker-detail-role">Основатель MSH · Ведущий эксперт по инвестициям</div>
+
+            <div class="broker-contacts-row">
+              <div>
+                <strong>Телефон:</strong>
+                <a id="broker-detail-phone" href="tel:+77252456124" style="color: var(--navy-900); font-weight: 600;">+7 (7252) 45-61-24</a>
+              </div>
+              <span style="color: var(--surface-gray-300);">•</span>
+              <div>
+                <strong>Email:</strong>
+                <a id="broker-detail-email" href="mailto:daniyar@msh.kz" style="color: var(--navy-900);">daniyar@msh.kz</a>
+              </div>
+              <span style="color: var(--surface-gray-300);">•</span>
+              <div>
+                <strong>Telegram:</strong>
+                <a id="broker-detail-tg" href="https://t.me/daniyar_msh" target="_blank" rel="noopener" style="color: var(--navy-900); font-weight: 500;">@daniyar_msh</a>
+              </div>
+            </div>
+
+            <p class="broker-bio-text" id="broker-detail-bio">
+              Более 15 лет формирует портфели частных и коммерческих активов в Шымкенте. Каждая сделка рассматривается как надежная долгосрочная инвестиция в ликвидность и семейный капитал. Провел более 180 закрытых сделок в премиальном сегменте города.
+            </p>
+
+            <blockquote class="broker-quote-block" id="broker-detail-quote">
+              «В премиальном сегменте доверие строится на точности цифр, юридической чистоте и конфиденциальности. MSH освобождает клиента от рутины и предлагает только объекты мирового уровня.»
+            </blockquote>
+
+            <button onclick="openConsultationModal('Встреча с брокером: Данияр Агудо')" class="btn-book-broker">
+              Записаться на встречу с брокером →
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Reviews
+         ====================================================================== -->
+    <section class="section-reviews" id="reviews" aria-label="Отзывы клиентов">
+      <div class="container">
+        
+        <div style="margin-bottom: 40px;">
+          <h2 class="section-title-large" style="margin-bottom: 0;">Отзывы клиентов</h2>
+        </div>
+
+        <div class="reviews-grid">
+          
+          <!-- Review 1 -->
+          <article class="review-card">
+            <div class="review-card-header">
+              <img src="assets/images/review-1.jpg" alt="Олжас и Динара Темировы" class="review-photo">
+              <div>
+                <div class="review-author-name">Олжас и Динара Темировы</div>
+                <div class="review-deal-badge">Покупка резиденции в мкр. Мирас</div>
+              </div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote-text">
+              «Искали просторный дом для большой семьи почти полгода. Команда MSH за две недели нашла закрытый объект, которого даже не было на рынке. Полное юридическое сопровождение, все прозрачно и спокойно.»
+            </p>
+            <div class="review-date">Сентябрь 2026 · Шымкент</div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card">
+            <div class="review-card-header">
+              <img src="assets/images/review-2.jpg" alt="Кайрат Жумабаев" class="review-photo">
+              <div>
+                <div class="review-author-name">Кайрат Жумабаев</div>
+                <div class="review-deal-badge">Инвестиционный портфель в новостройках</div>
+              </div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote-text">
+              «Сотрудничаю с брокерами MSH уже по третьей сделке. Все цифры по доходности и ликвидности подтвердились на практике. Профессионалы высочайшего уровня на юге Казахстана.»
+            </p>
+            <div class="review-date">Август 2026 · Шымкент</div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card">
+            <div class="review-card-header">
+              <img src="assets/images/review-3.jpg" alt="Айнур Бекенова" class="review-photo">
+              <div>
+                <div class="review-author-name">Айнур Бекенова</div>
+                <div class="review-deal-badge">Квартира премиум-класса на пр. Тауке Хана</div>
+              </div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote-text">
+              «Превосходный сервис! Меня встретили, показали все варианты, организовали проверку документов за один день. Очень довольна выбором нового жилья для семьи.»
+            </p>
+            <div class="review-date">Октябрь 2026 · Шымкент</div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       Footer (Dark Navy)
+       ======================================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      
+      <div class="footer-main-grid">
+        
+        <!-- Brand & Mission -->
+        <div class="footer-brand-col">
+          <div class="footer-logo">MSH</div>
+          <p class="footer-descriptor">
+            Агентство частной и инвестиционной недвижимости в Шымкенте. Формируем культуру премиального сервиса и надежных сделок на юге Казахстана.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://t.me" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Telegram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </a>
+            <a href="https://whatsapp.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 1: Компания -->
+        <div>
+          <div class="footer-col-title">Компания</div>
+          <ul class="footer-links-list">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#brokers">Команда экспертов</a></li>
+            <li><a href="#" onclick="openConsultationModal('Карьера в MSH'); return false;">Вакансии и карьера</a></li>
+            <li><a href="#" onclick="openConsultationModal('Пресса о MSH'); return false;">Пресса о нас</a></li>
+            <li><a href="#about">Корпоративные стандарты</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Услуги -->
+        <div>
+          <div class="footer-col-title">Услуги</div>
+          <ul class="footer-links-list">
+            <li><a href="#" onclick="openConsultationModal('Инвестиционный консалтинг'); return false;">Инвестиционный консалтинг</a></li>
+            <li><a href="#properties">Подбор жилых резиденций</a></li>
+            <li><a href="#" onclick="openConsultationModal('Коммерческие площади'); return false;">Коммерческие площади</a></li>
+            <li><a href="#" onclick="openConsultationModal('Оценка ликвидности'); return false;">Оценка ликвидности</a></li>
+            <li><a href="#" onclick="openConsultationModal('Юридический аудит'); return false;">Юридический аудит</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Каталог районов -->
+        <div>
+          <div class="footer-col-title">Каталог</div>
+          <ul class="footer-links-list">
+            <li><a href="#properties">мкр. Мирас</a></li>
+            <li><a href="#properties">мкр. Туран</a></li>
+            <li><a href="#properties">мкр. Нурсат</a></li>
+            <li><a href="#properties">пр. Тауке Хана</a></li>
+            <li><a href="#" onclick="openConsultationModal('Доступ в закрытую коллекцию Off-Market'); return false;">Закрытая коллекция (Off-Market)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Прямая связь -->
+        <div>
+          <div class="footer-col-title">Контакты</div>
+          <div class="footer-direct-contact">
+            <a href="tel:+77252456124" class="contact-phone-highlight">+7 (7252) 45-61-24</a>
+            <div>contact@msh.kz</div>
+            <div>г. Шымкент, БЦ "Talap Tower", 8 этаж</div>
+            <div style="margin-top: 6px;">Пн–Сб: 09:00 — 20:00</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal Disclaimer -->
+      <div class="footer-disclaimer-box">
+        Информация, представленная на сайте, носит исключительно ознакомительный характер и не является публичной офертой. Все объекты недвижимости агентства MSH и партнеров. Точность любого описания не гарантируется. Все измерения и указанные площади являются приблизительными, и вся информация должна быть подтверждена клиентом или привлеченным архитектором или партнером. Компания MSH строго поддерживает равные возможности в сфере жилищного обеспечения и соблюдает все принципы справедливого жилищного обеспечения, установленные законом.
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="footer-legal-links">
+          <a href="#" onclick="alert('Политика конфиденциальности: персональные данные защищены законом РК.'); return false;">Политика конфиденциальности</a>
+          <a href="#" onclick="alert('Пользовательское соглашение: сервис агентства MSH.'); return false;">Пользовательское соглашение</a>
+          <a href="#site-header">Карта сайта</a>
+        </div>
+        <div>
+          © 2026 ТОО "MSH Real Estate Group". Все права защищены.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       Consultation Modal
+       ======================================================================== -->
+  <div class="consultation-modal" id="consultation-modal" aria-hidden="true" role="dialog">
+    <div class="modal-content-box">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Закрыть окно">✕</button>
+      <h3 class="modal-title" id="modal-topic-title">Консультация с брокером</h3>
+      <p class="modal-desc">Оставьте ваши контактные данные, и специалист MSH свяжется с вами в течение 10 минут.</p>
+
+      <form id="consultation-form">
+        <div class="form-group">
+          <label class="form-label" for="client-name">Ваше имя</label>
+          <input type="text" id="client-name" class="form-input" placeholder="Например: Арман" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="client-phone">Номер телефона (WhatsApp)</label>
+          <input type="tel" id="client-phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="client-interest">Интересующий район или объект</label>
+          <input type="text" id="client-interest" class="form-input" placeholder="мкр. Мирас, Туран, частный дом, новостройка...">
+        </div>
+
+        <button type="submit" class="btn-submit-modal">Отправить запрос брокеру</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Broker Audit Circle Button (5x more compact) -->
+  <button class="floating-agent-circle" onclick="openConsultationModal('Экспресс-консультация с персональным брокером')" role="button" aria-label="Брокерский аудит MSH — консультация" title="Брокерский аудит MSH">
+    <div class="floating-agent-icon-inner">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    </div>
+    <span class="floating-agent-badge-pulse" aria-hidden="true"></span>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
